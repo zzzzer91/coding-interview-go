@@ -25,19 +25,19 @@ func main() {
 
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= m; j++ {
+			temp := dp[i-1][j-1]
+			if s1[i-1] != s2[j-1] { // 替换
+				temp += 1
+			}
 			// 三者取最小
-			dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + 1
-			dp[i][j] = min(dp[i][j], dp[i-1][j-1]+convertBool2Int(s1[i-1] != s2[j-1]))
+			dp[i][j] = min3(dp[i][j-1]+1, dp[i-1][j]+1, temp)
 		}
 	}
 	fmt.Println(dp[n][m])
 }
 
-func convertBool2Int(b bool) int {
-	if b {
-		return 1
-	}
-	return 0
+func min3(a, b, c int) int {
+	return min(min(a, b), c)
 }
 
 func min(a, b int) int {
