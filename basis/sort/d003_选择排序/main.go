@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+func main() {
+	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
+	selectionSort(a)
+	fmt.Println(a)
+}
+
 func selectionSort(a []int) {
 	for i, limit := 0, len(a)-1; i < limit; i++ {
 		minIndex := i
@@ -15,10 +21,4 @@ func selectionSort(a []int) {
 			a[minIndex], a[i] = a[i], a[minIndex]
 		}
 	}
-}
-
-func main() {
-	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
-	selectionSort(a)
-	fmt.Println(a)
 }

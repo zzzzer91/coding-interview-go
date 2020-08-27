@@ -2,6 +2,12 @@ package main
 
 import "fmt"
 
+func main() {
+	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
+	bubbleSort(a)
+	fmt.Println(a)
+}
+
 func bubbleSort(a []int) {
 	flag := false
 	for i := len(a) - 1; i > 0; i-- {
@@ -18,10 +24,4 @@ func bubbleSort(a []int) {
 			break
 		}
 	}
-}
-
-func main() {
-	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
-	bubbleSort(a)
-	fmt.Println(a)
 }

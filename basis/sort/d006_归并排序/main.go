@@ -2,6 +2,22 @@ package main
 
 import "fmt"
 
+func main() {
+	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
+	mergeSort(a)
+	fmt.Println(a)
+}
+
+func mergeSort(a []int) {
+	if len(a) <= 1 {
+		return
+	}
+	mid := (len(a) - 1) / 2
+	mergeSort(a[:mid+1]) // 使左半部分有序
+	mergeSort(a[mid+1:]) // 使右半部分有序
+	merge(a, mid)
+}
+
 // merge 将数组被 mid 分为左右的两部分合并有序
 func merge(a []int, mid int) {
 	temp := make([]int, len(a))
@@ -30,20 +46,4 @@ func merge(a []int, mid int) {
 		j++
 		pos++
 	}
-}
-
-func mergeSort(a []int) {
-	if len(a) <= 1 {
-		return
-	}
-	mid := (len(a) - 1) / 2
-	mergeSort(a[:mid+1]) // 使左半部分有序
-	mergeSort(a[mid+1:]) // 使右半部分有序
-	merge(a, mid)
-}
-
-func main() {
-	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
-	mergeSort(a)
-	fmt.Println(a)
 }

@@ -25,6 +25,7 @@ func main() {
 
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= m; j++ {
+			// 三者取最小
 			dp[i][j] = min(dp[i][j-1], dp[i-1][j]) + 1
 			dp[i][j] = min(dp[i][j], dp[i-1][j-1]+convertBool2Int(s1[i-1] != s2[j-1]))
 		}
