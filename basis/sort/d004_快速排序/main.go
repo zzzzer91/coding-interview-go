@@ -5,7 +5,8 @@ import (
 )
 
 func main() {
-	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
+	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10, 0}
+	// a := []int{1, 2}
 	quickSort(a)
 	fmt.Println(a)
 }
@@ -15,30 +16,30 @@ func quickSort(a []int) {
 		return
 	}
 
-	lo, hi := 0, len(a)-1
+	l, r := 0, len(a)-1
 	// 最左边数的作为枢纽，但效果不一定好
-	// pivot := a[lo]
+	pivot := a[l]
 	// 最左边、中间、最右边的中间值作为枢纽
 	// 同时中间值会被移动到最左边
-	pivot := median3(a)
-	for lo < hi {
+	// pivot := median3(a)
+	for l < r {
 		// 从右往左，找到第一个小于 pivot 的值的索引
-		for lo < hi && a[hi] >= pivot {
-			hi--
+		for l < r && a[r] >= pivot {
+			r--
 		}
-		// a[lo] 的值目前暂存在 pivot 中，所以可以覆盖
-		a[lo] = a[hi]
+		// a[l] 的值目前暂存在 pivot 中，所以可以覆盖
+		a[l] = a[r]
 		// 从左往右，找到第一个大于 pivot 的值的索引
-		for lo < hi && a[lo] <= pivot {
-			lo++
+		for l < r && a[l] <= pivot {
+			l++
 		}
-		a[hi] = a[lo]
+		a[r] = a[l]
 	}
-	// 此时 lo == hi，所以哪个都无所谓
-	a[lo] = pivot
+	// 此时 l == r，所以哪个都无所谓
+	a[l] = pivot
 
-	quickSort(a[:lo])
-	quickSort(a[lo+1:])
+	quickSort(a[:l])
+	quickSort(a[l+1:])
 }
 
 // median3 选出数组最左边、中间、最右边的中间值，

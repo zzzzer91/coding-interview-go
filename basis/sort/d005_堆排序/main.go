@@ -5,7 +5,7 @@ import (
 )
 
 func main() {
-	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10}
+	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10, 0}
 	heapSort(a)
 	fmt.Println(a)
 }
