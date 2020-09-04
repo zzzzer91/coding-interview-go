@@ -117,7 +117,9 @@ func main() {
 	root.Left = CreateNode(2)
 	root.Left.Right = CreateNode(3)
 	root.Left.Right.Left = CreateNode(4)
-	root.Right = CreateNode(5)
+	root.Left.Right.Right = CreateNode(5)
+	root.Right = CreateNode(6)
+	root.Right.Left = CreateNode(7)
 
 	// 先序遍历
 	fmt.Println(preOrder(root))
