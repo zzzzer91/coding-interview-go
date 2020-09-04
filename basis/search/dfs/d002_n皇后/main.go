@@ -1,4 +1,5 @@
 // https://www.acwing.com/problem/content/845/
+// 时间复杂度 n!
 
 package main
 
