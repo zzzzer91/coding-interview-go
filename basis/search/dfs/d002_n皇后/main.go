@@ -34,13 +34,13 @@ func dfs(u int) {
 	for j := 0; j < n; j++ {
 		// y = -x + b   =>  b = y + x 这样就能唯一表示一个对角线上的一点
 		// y =  x + b   =>  b = y - x 有可能为负，所以加上偏移量n，不过这样数组范围会变大
-		if col[j] || dg[u+j] || udg[n-u+j] {
+		if col[j] || dg[j+u] || udg[j-u+n] {
 			continue
 		}
 		a[u][j] = 'Q'
-		col[j], dg[u+j], udg[n-u+j] = true, true, true
+		col[j], dg[u+j], udg[j-u+n] = true, true, true
 		dfs(u + 1)
 		a[u][j] = '.'
-		col[j], dg[u+j], udg[n-u+j] = false, false, false
+		col[j], dg[u+j], udg[j-u+n] = false, false, false
 	}
 }
