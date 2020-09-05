@@ -26,10 +26,10 @@ func main() {
 	for i := 1; i <= n; i++ {
 		for j := 1; j <= m; j++ {
 			temp := dp[i-1][j-1]
-			if s1[i-1] != s2[j-1] { // 替换
-				temp += 1
+			if s1[i-1] != s2[j-1] {
+				temp += 1 // 替换
 			}
-			// 三者取最小
+			// 添加，删除，替换三者取最小
 			dp[i][j] = min3(dp[i][j-1]+1, dp[i-1][j]+1, temp)
 		}
 	}
