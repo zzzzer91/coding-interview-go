@@ -1,4 +1,8 @@
-package p0125_验证回文串
+package main
+
+func main() {
+
+}
 
 func isPalindrome(s string) bool {
 	left, right := 0, len(s)-1

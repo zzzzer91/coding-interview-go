@@ -1,6 +1,10 @@
 // 动态规划
 
-package p0070_爬楼梯
+package main
+
+func main() {
+
+}
 
 func climbStairs(n int) int {
 	if n <= 3 {

@@ -1,4 +1,8 @@
-package p0053_最大子序和
+package main
+
+func main() {
+
+}
 
 // 动态规划
 func maxSubArray(nums []int) int {

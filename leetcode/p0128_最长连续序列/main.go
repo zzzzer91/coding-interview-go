@@ -1,4 +1,8 @@
-package p0128_最长连续序列
+package main
+
+func main() {
+
+}
 
 func longestConsecutive(nums []int) int {
 	ret := 0

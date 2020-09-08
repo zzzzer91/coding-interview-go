@@ -1,4 +1,5 @@
 // https://www.acwing.com/problem/content/description/3/
+// 完全背包问题，状态转移方程需要推导，直接看代码看不出来
 
 package main
 

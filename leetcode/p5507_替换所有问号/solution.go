@@ -1,4 +1,8 @@
-package p5507_替换所有问号
+package main
+
+func main() {
+
+}
 
 func modifyString(s string) string {
 	res := []byte(s)

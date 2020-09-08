@@ -1,4 +1,4 @@
-package p0155_最小栈
+package main
 
 type MinStack struct {
 	mins []int
@@ -45,4 +45,8 @@ func (this *MinStack) GetMin() int {
 	}
 
 	return this.mins[len(this.mins)-1]
+}
+
+func main() {
+
 }

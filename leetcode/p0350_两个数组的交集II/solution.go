@@ -1,6 +1,10 @@
-package p0350_两个数组的交集II
+package main
 
 import "sort"
+
+func main() {
+
+}
 
 // 使用字典
 func intersect(nums1 []int, nums2 []int) []int {

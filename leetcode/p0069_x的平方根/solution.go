@@ -1,4 +1,8 @@
-package p0069_x的平方根
+package main
+
+func main() {
+
+}
 
 // 二分查找法
 func mySqrt(x int) int {

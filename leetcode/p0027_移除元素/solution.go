@@ -1,4 +1,8 @@
-package p0027_移除元素
+package main
+
+func main() {
+
+}
 
 func removeElement(nums []int, val int) int {
 	pos := 0

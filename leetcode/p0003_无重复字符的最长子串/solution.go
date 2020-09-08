@@ -1,4 +1,8 @@
-package p0003_无重复字符的最长子串
+package main
+
+func main() {
+
+}
 
 // 只能是 ascii 码
 func lengthOfLongestSubstring(s string) int {

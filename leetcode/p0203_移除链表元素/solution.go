@@ -1,8 +1,12 @@
-package p0203_移除链表元素
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func main() {
+
 }
 
 func reverseList(head *ListNode) *ListNode {

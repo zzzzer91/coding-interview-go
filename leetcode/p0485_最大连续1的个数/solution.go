@@ -1,4 +1,8 @@
-package p0485_最大连续1的个数
+package main
+
+func main() {
+
+}
 
 func findMaxConsecutiveOnes(nums []int) int {
 	res := 0

@@ -1,4 +1,8 @@
-package p0167_两数之和II
+package main
+
+func main() {
+
+}
 
 func twoSum(numbers []int, target int) []int {
 	lo, hi := 0, len(numbers)-1

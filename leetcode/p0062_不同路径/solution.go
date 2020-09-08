@@ -1,4 +1,8 @@
-package p0062_不同路径
+package main
+
+func main() {
+
+}
 
 // 还可以进一步把二维数组优化成一维数组
 // m 是列数，n 是行数

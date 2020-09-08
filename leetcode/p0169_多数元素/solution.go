@@ -1,4 +1,8 @@
-package p0169_多数元素
+package main
+
+func main() {
+
+}
 
 // hash 表，时 O(n)，空 O(n)，虽然显示空间小于 100%，但非最佳
 func majorityElement(nums []int) int {

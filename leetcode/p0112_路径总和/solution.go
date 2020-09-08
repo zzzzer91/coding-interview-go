@@ -1,9 +1,13 @@
-package p0112_路径总和
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 func hasPathSum(root *TreeNode, sum int) bool {

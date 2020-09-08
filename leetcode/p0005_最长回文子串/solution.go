@@ -1,4 +1,8 @@
-package p0005_最长回文子串
+package main
+
+func main() {
+
+}
 
 // O(n^2) 时间复杂度，使用马拉车算法，可以达到 O(n)，但是不通用
 func longestPalindrome(s string) string {

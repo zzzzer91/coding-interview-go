@@ -1,4 +1,8 @@
-package p0020_有效的括号
+package main
+
+func main() {
+
+}
 
 func isValid(s string) bool {
 	var stack []byte

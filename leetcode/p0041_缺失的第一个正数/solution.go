@@ -1,4 +1,8 @@
-package p0041_缺失的第一个正数
+package main
+
+func main() {
+
+}
 
 func firstMissingPositive(nums []int) int {
 	for _, num := range nums {

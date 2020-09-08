@@ -1,10 +1,7 @@
-package p0198_打家劫舍
+package main
 
-func max(a, b int) int {
-	if a > b {
-		return a
-	}
-	return b
+func main() {
+
 }
 
 func rob(nums []int) int {
@@ -31,4 +28,11 @@ func rob2(nums []int) int {
 		preMoney, curMoney = curMoney, max(preMoney+num, curMoney)
 	}
 	return curMoney
+}
+
+func max(a, b int) int {
+	if a > b {
+		return a
+	}
+	return b
 }

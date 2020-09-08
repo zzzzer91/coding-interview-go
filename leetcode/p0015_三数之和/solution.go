@@ -1,6 +1,10 @@
-package p0015_三数之和
+package main
 
 import "sort"
+
+func main() {
+
+}
 
 func threeSum(nums []int) [][]int {
 	var res [][]int

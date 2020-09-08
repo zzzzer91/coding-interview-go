@@ -1,8 +1,12 @@
-package p0160_相交链表
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func main() {
+
 }
 
 func getIntersectionNode(headA, headB *ListNode) *ListNode {

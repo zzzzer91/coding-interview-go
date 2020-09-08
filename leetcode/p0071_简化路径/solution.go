@@ -1,6 +1,10 @@
-package p0071_简化路径
+package main
 
 import "strings"
+
+func main() {
+
+}
 
 func simplifyPath(path string) string {
 	var stack []string

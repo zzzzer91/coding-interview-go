@@ -1,6 +1,10 @@
-package p0058_最后一个单词的长度
+package main
 
 import "strings"
+
+func main() {
+
+}
 
 func lengthOfLastWord(s string) int {
 	length := 0

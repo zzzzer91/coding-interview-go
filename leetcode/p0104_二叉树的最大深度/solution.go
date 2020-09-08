@@ -1,9 +1,13 @@
-package p0104_二叉树的最大深度
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 func maxDepth(root *TreeNode) int {

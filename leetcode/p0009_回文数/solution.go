@@ -1,4 +1,8 @@
-package p0009_回文数
+package main
+
+func main() {
+
+}
 
 func isPalindrome(x int) bool {
 	if x < 0 {

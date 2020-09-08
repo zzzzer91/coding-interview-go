@@ -1,19 +1,12 @@
-package p0234_回文链表
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
 }
 
-func reverse(head *ListNode) *ListNode {
-	fakeHead := ListNode{}
-	for head != nil {
-		temp := head.Next
-		head.Next = fakeHead.Next
-		fakeHead.Next = head
-		head = temp
-	}
-	return fakeHead.Next
+func main() {
+
 }
 
 // 时 O(n)，空 O(1)，思想：
@@ -39,4 +32,15 @@ func isPalindrome(head *ListNode) bool {
 		p = p.Next
 	}
 	return true
+}
+
+func reverse(head *ListNode) *ListNode {
+	fakeHead := ListNode{}
+	for head != nil {
+		temp := head.Next
+		head.Next = fakeHead.Next
+		fakeHead.Next = head
+		head = temp
+	}
+	return fakeHead.Next
 }

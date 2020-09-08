@@ -1,4 +1,8 @@
-package p0004_寻找两个有序数组的中位数
+package main
+
+func main() {
+
+}
 
 // 开辟一个辅助数组，通俗易懂，但时间复杂度无法达到 O(log(m+n))
 func findMedianSortedArrays(nums1 []int, nums2 []int) float64 {

@@ -1,4 +1,8 @@
-package p0118_杨辉三角
+package main
+
+func main() {
+
+}
 
 func generate(numRows int) [][]int {
 	var ret [][]int

@@ -1,6 +1,10 @@
-package p0151_翻转字符串里的单词
+package main
 
 import "strings"
+
+func main() {
+
+}
 
 func reverseWords(s string) string {
 	var stack []string

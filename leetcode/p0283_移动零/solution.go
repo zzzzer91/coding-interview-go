@@ -1,4 +1,8 @@
-package p0283_移动零
+package main
+
+func main() {
+
+}
 
 func moveZeroes(nums []int) {
 	pos := 0

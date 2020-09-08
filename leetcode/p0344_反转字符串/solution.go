@@ -1,4 +1,8 @@
-package p0344_反转字符串
+package main
+
+func main() {
+
+}
 
 func reverseString(s []byte) {
 	lo, hi := 0, len(s)-1

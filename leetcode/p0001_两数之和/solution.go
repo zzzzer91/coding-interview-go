@@ -1,4 +1,8 @@
-package p0001_两数之和
+package main
+
+func main() {
+
+}
 
 func twoSum(nums []int, target int) []int {
 	dict := make(map[int]int)

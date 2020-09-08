@@ -1,4 +1,8 @@
-package p0032_最长有效括号
+package main
+
+func main() {
+
+}
 
 func longestValidParentheses(s string) int {
 	res := 0

@@ -1,4 +1,8 @@
-package p0171_Excel表列序号
+package main
+
+func main() {
+
+}
 
 func titleToNumber(s string) int {
 	num := 0

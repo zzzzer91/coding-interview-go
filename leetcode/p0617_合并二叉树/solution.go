@@ -1,9 +1,13 @@
-package p0617_合并二叉树
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {

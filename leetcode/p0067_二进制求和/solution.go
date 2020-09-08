@@ -1,4 +1,8 @@
-package p0067_二进制求和
+package main
+
+func main() {
+
+}
 
 func addBinary(a string, b string) string {
 	// a 放置长字符串

@@ -1,4 +1,8 @@
-package p0026_删除排序数组中的重复项
+package main
+
+func main() {
+
+}
 
 func removeDuplicates(nums []int) int {
 	pos := 0

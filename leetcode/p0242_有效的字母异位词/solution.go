@@ -1,6 +1,10 @@
-package p0242_有效的字母异位词
+package main
 
 import "unicode/utf8"
+
+func main() {
+
+}
 
 // 输入字符串只有小写字母
 func isAnagram(s string, t string) bool {

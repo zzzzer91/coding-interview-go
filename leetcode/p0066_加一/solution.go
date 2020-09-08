@@ -1,4 +1,8 @@
-package p0066_加一
+package main
+
+func main() {
+
+}
 
 func plusOne(digits []int) []int {
 	ret := make([]int, 1, len(digits)+1)

@@ -1,9 +1,13 @@
-package p0094_二叉树的中序遍历
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 func inorderTraversal(root *TreeNode) []int {

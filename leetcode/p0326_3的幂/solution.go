@@ -1,4 +1,8 @@
-package p0326_3的幂
+package main
+
+func main() {
+
+}
 
 func isPowerOfThree(n int) bool {
 	// 3 ^ 19 = 1162261467

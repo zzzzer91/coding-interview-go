@@ -1,8 +1,12 @@
-package p0083_删除排序链表中的重复元素
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func main() {
+
 }
 
 func deleteDuplicates(head *ListNode) *ListNode {

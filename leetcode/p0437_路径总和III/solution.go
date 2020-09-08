@@ -1,9 +1,13 @@
-package p0437_路径总和III
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 // 感觉还不够好

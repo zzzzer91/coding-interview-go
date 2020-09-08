@@ -1,4 +1,8 @@
-package p0268_缺失数字
+package main
+
+func main() {
+
+}
 
 func missingNumber(nums []int) int {
 	n := len(nums) * (len(nums) + 1) / 2

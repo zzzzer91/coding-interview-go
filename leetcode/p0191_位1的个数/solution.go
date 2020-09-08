@@ -1,4 +1,8 @@
-package p0191_位1的个数
+package main
+
+func main() {
+
+}
 
 func hammingWeight(num uint32) int {
 	count := 0

@@ -1,4 +1,8 @@
-package p0063_不同路径II
+package main
+
+func main() {
+
+}
 
 // 感觉还不够好
 func uniquePathsWithObstacles(obstacleGrid [][]int) int {

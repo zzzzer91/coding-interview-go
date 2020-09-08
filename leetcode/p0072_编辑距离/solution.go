@@ -1,4 +1,8 @@
-package p0072_编辑距离
+package main
+
+func main() {
+
+}
 
 func minDistance(word1 string, word2 string) int {
 	l1 := len(word1)

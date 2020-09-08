@@ -1,4 +1,8 @@
-package p0055_跳跃游戏
+package main
+
+func main() {
+
+}
 
 func canJump(nums []int) bool {
 	// 直到 i-1 位置，能跳到的最远距离

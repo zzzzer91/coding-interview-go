@@ -1,4 +1,8 @@
-package p0035_搜索插入位置
+package main
+
+func main() {
+
+}
 
 func searchInsert(nums []int, target int) int {
 	left, right := 0, len(nums)-1

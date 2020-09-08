@@ -1,9 +1,13 @@
-package p0543_二叉树的直径
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 // 效率不高，有重复计算

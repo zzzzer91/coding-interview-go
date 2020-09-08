@@ -1,4 +1,8 @@
-package p0088_合并两个有序数组
+package main
+
+func main() {
+
+}
 
 func merge1(nums1 []int, m int, nums2 []int, n int) {
 	pos := m + n - 1

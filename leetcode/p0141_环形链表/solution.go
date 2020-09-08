@@ -1,8 +1,12 @@
-package p0141_环形链表
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func main() {
+
 }
 
 func hasCycle(head *ListNode) bool {

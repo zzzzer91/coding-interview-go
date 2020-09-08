@@ -1,4 +1,8 @@
-package p0387_字符串中的第一个唯一字符
+package main
+
+func main() {
+
+}
 
 func firstUniqChar(s string) int {
 	m := make([]int, 26)

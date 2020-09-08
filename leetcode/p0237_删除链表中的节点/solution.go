@@ -1,8 +1,12 @@
-package p0237_删除链表中的节点
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func main() {
+
 }
 
 func deleteNode(node *ListNode) {

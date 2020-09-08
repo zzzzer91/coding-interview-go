@@ -1,9 +1,13 @@
-package p0110_平衡二叉树
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 func isBalanced(root *TreeNode) bool {

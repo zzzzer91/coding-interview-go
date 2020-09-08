@@ -1,10 +1,7 @@
-package p0120_三角形最小路径和
+package main
 
-func min(a, b int) int {
-	if a < b {
-		return a
-	}
-	return b
+func main() {
+
 }
 
 func minimumTotal(triangle [][]int) int {
@@ -17,4 +14,11 @@ func minimumTotal(triangle [][]int) int {
 		}
 	}
 	return dp[0]
+}
+
+func min(a, b int) int {
+	if a < b {
+		return a
+	}
+	return b
 }

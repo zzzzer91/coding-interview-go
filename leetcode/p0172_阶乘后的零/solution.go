@@ -1,4 +1,8 @@
-package p0172_阶乘后的零
+package main
+
+func main() {
+
+}
 
 // count = n / 5 + n / 25 + n / 125 + ...
 func trailingZeroes(n int) int {

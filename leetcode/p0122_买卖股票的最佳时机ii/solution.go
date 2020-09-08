@@ -1,4 +1,8 @@
-package p0122_买卖股票的最佳时机ii
+package main
+
+func main() {
+
+}
 
 func maxProfit(prices []int) int {
 	profit := 0

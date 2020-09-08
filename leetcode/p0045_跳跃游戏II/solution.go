@@ -1,4 +1,8 @@
-package p0045_跳跃游戏II
+package main
+
+func main() {
+
+}
 
 func jump(nums []int) int {
 	res := 0

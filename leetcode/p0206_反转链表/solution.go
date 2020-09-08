@@ -1,8 +1,12 @@
-package p0206_反转链表
+package main
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
+}
+
+func main() {
+
 }
 
 func reverseList(head *ListNode) *ListNode {

@@ -1,4 +1,8 @@
-package p0168_Excel表列名称
+package main
+
+func main() {
+
+}
 
 func convertToTitle(n int) string {
 	var result []byte

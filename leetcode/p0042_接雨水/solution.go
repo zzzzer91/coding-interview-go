@@ -1,4 +1,8 @@
-package p0042_接雨水
+package main
+
+func main() {
+
+}
 
 // 使用双指针
 func trap(height []int) int {

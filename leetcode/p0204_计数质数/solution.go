@@ -1,4 +1,8 @@
-package p0204_计数质数
+package main
+
+func main() {
+
+}
 
 func countPrimes(n int) int {
 	a := make([]bool, n)

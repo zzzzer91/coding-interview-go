@@ -1,6 +1,10 @@
-package p0007_整数反转
+package main
 
 import "math"
+
+func main() {
+
+}
 
 // int 在 32 位平台是 4 字节，会溢出
 func reverse(x int) int {

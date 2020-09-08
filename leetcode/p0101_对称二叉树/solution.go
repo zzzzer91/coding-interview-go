@@ -1,13 +1,4 @@
 // 判断二叉树是否对称
-
-package p0101_symmetric__tree
-
-type TreeNode struct {
-	Val   int
-	Left  *TreeNode
-	Right *TreeNode
-}
-
 /*
     1
    / \
@@ -15,6 +6,19 @@ type TreeNode struct {
  / \ / \
 3  4 4  3
 */
+
+package main
+
+type TreeNode struct {
+	Val   int
+	Left  *TreeNode
+	Right *TreeNode
+}
+
+func main() {
+
+}
+
 func isSymmetric(root *TreeNode) bool {
 	if root == nil {
 		return true

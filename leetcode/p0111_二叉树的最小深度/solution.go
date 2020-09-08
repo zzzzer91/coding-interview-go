@@ -1,9 +1,13 @@
-package p0111_二叉树的最小深度
+package main
 
 type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 // Recursive

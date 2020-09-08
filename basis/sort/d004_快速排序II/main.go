@@ -1,4 +1,5 @@
 // 简化快速排序代码，使其更容易记忆
+// todo 有问题
 
 package main
 
@@ -8,6 +9,7 @@ import (
 
 func main() {
 	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10, 0}
+	// a := []int{2, 1}
 	quickSort(a)
 	fmt.Println(a)
 }
@@ -18,7 +20,8 @@ func quickSort(a []int) {
 	}
 
 	l, r := 0, len(a)-1
-	x := a[l+r>>1]
+	m := l + r>>1
+	x := a[m]
 	for l < r {
 		for a[l] < x {
 			l++
@@ -28,9 +31,11 @@ func quickSort(a []int) {
 		}
 		if l < r {
 			a[l], a[r] = a[r], a[l]
+			l++
+			r--
 		}
 	}
 
-	quickSort(a[:l])
-	quickSort(a[l+1:])
+	quickSort(a[:m])
+	quickSort(a[m+1:])
 }

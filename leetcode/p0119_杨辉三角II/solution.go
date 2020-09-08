@@ -1,4 +1,8 @@
-package p0119_杨辉三角II
+package main
+
+func main() {
+
+}
 
 func getRow(rowIndex int) []int {
 	ret := make([]int, rowIndex+1)

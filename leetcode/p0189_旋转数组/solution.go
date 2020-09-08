@@ -1,4 +1,8 @@
-package p0189_旋转数组
+package main
+
+func main() {
+
+}
 
 func rotate(nums []int, k int) {
 	numsLen := len(nums)

@@ -1,4 +1,8 @@
-package p0136_只出现一次的数字
+package main
+
+func main() {
+
+}
 
 func singleNumber(nums []int) int {
 	ret := 0

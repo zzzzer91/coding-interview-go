@@ -1,4 +1,4 @@
-package p0108_将有序数组转换为二叉搜索树
+package main
 
 type TreeNode struct {
 	Val   int
@@ -6,6 +6,9 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
+func main() {
+
+}
 func sortedArrayToBST(nums []int) *TreeNode {
 	if len(nums) == 0 {
 		return nil

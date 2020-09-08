@@ -1,4 +1,4 @@
-package p0679_24点游戏
+package main
 
 import "math"
 
@@ -8,6 +8,10 @@ func judgePoint24(nums []int) bool {
 		a = append(a, float64(n))
 	}
 	return f(a)
+}
+
+func main() {
+
 }
 
 func f(a []float64) bool {

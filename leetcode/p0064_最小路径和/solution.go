@@ -1,4 +1,8 @@
-package p0064_最小路径和
+package main
+
+func main() {
+
+}
 
 func minPathSum(grid [][]int) int {
 	colNum := len(grid[0])

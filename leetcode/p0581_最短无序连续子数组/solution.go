@@ -1,6 +1,10 @@
-package p0581_最短无序连续子数组
+package main
 
 import "sort"
+
+func main() {
+
+}
 
 // 先将数组排序，然后对比前后不同，需要辅助数组
 func findUnsortedSubarray(nums []int) int {

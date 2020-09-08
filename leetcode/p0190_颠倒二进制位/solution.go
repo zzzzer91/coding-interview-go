@@ -1,4 +1,8 @@
-package p0190_颠倒二进制位
+package main
+
+func main() {
+
+}
 
 func reverseBits(num uint32) uint32 {
 	var leftMask, rightMask uint32 = 1 << 31, 1

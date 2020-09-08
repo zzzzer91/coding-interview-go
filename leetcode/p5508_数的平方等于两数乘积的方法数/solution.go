@@ -2,7 +2,11 @@
 // 所以要用二重循环
 // 利用哈希表将三重循环优化为二重循环
 
-package p5508_数的平方等于两数乘积的方法数
+package main
+
+func main() {
+
+}
 
 func numTriplets(nums1 []int, nums2 []int) int {
 	return f(nums1, nums2) + f(nums2, nums1)

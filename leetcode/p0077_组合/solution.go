@@ -1,4 +1,8 @@
-package p0077_组合
+package main
+
+func main() {
+
+}
 
 func combine(n int, k int) [][]int {
 	a := make([]int, 0, k)

@@ -1,6 +1,10 @@
-package p0134_加油站
+package main
 
 import "math"
+
+func main() {
+
+}
 
 func canCompleteCircuit(gas []int, cost []int) int {
 	sum := 0

@@ -1,4 +1,4 @@
-package p0102_二叉树的层次遍历
+package main
 
 import "container/list"
 
@@ -6,6 +6,10 @@ type TreeNode struct {
 	Val   int
 	Left  *TreeNode
 	Right *TreeNode
+}
+
+func main() {
+
 }
 
 func levelOrder(root *TreeNode) [][]int {

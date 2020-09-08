@@ -1,4 +1,8 @@
-package p0014_最长公共前缀
+package main
+
+func main() {
+
+}
 
 func longestCommonPrefix(strs []string) string {
 	if len(strs) == 0 {

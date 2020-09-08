@@ -1,4 +1,8 @@
-package p0011_盛最多水的容器
+package main
+
+func main() {
+
+}
 
 func maxArea(height []int) int {
 	res := 0

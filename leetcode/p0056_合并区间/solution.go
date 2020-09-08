@@ -1,6 +1,10 @@
-package p0056_合并区间
+package main
 
 import "sort"
+
+func main() {
+
+}
 
 // 先根据前一个值排序
 func merge(intervals [][]int) [][]int {
