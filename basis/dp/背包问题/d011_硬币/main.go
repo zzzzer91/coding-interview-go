@@ -1,6 +1,12 @@
 // https://leetcode-cn.com/problems/coin-lcci/
 
-package d011_硬币
+package main
+
+import "fmt"
+
+func main() {
+	fmt.Println(waysToChange(10))
+}
 
 func waysToChange(n int) int {
 	dp := make([]int, n+1)
