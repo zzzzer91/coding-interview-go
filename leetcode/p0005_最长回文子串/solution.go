@@ -19,17 +19,17 @@ func longestPalindrome(s string) string {
 	return res
 }
 
-func maxS(s1, s2 string) string {
-	if len(s1) > len(s2) {
-		return s1
-	}
-	return s2
-}
-
 func findPalindrome(s string, l, r int) string {
 	for l >= 0 && r < len(s) && s[l] == s[r] {
 		l--
 		r++
 	}
 	return s[l+1 : r]
+}
+
+func maxS(s1, s2 string) string {
+	if len(s1) > len(s2) {
+		return s1
+	}
+	return s2
 }
