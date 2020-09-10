@@ -19,9 +19,6 @@ func combinationSum2(candidates []int, target int) [][]int {
 	var comb []int
 	var dfs func(target, u int)
 	dfs = func(target, u int) {
-		if target < 0 {
-			return
-		}
 		if target == 0 {
 			temp := make([]int, len(comb))
 			copy(temp, comb)
