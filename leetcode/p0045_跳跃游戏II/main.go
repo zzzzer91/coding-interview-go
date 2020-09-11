@@ -26,6 +26,9 @@ func jump(nums []int) int {
 		if i == end { // 遇到边界，就更新边界，并且最少需要步数加一
 			end = maxPos // 更新边界为能跳到的最远距离
 			res++
+			if end >= len(nums)-1 {
+				break
+			}
 		}
 	}
 	return res
