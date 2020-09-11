@@ -1,5 +1,6 @@
 // https://leetcode-cn.com/problems/non-overlapping-intervals/
 // 贪心
+// 题解：https://leetcode-cn.com/problems/non-overlapping-intervals/solution/tan-xin-suan-fa-zhi-qu-jian-diao-du-wen-ti-by-labu/
 
 package main
 

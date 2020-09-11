@@ -1,19 +1,28 @@
+// https://leetcode-cn.com/problems/jump-game-ii/
+
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	fmt.Println(jump([]int{2, 3, 1, 1, 4}))
 }
 
+// 贪心
 func jump(nums []int) int {
 	res := 0
 	end := 0
 	maxPos := 0
-	// len(nums)-1，防止正好跳到末尾的情况
-	for i, num := range nums[:len(nums)-1] {
-		//找能跳的最远的
-		maxPos = max(maxPos, num+i)
-		if i == end { // 遇到边界，就更新边界，并且步数加一
-			end = maxPos
+	// 在遍历数组时，我们不访问最后一个元素，
+	// 这是因为在访问最后一个元素之前，我们的边界一定大于等于最后一个位置，
+	// 否则就无法跳到最后一个位置了。
+	// 如果访问最后一个元素，在边界正好为最后一个位置的情况下，
+	// 我们会增加一次「不必要的跳跃次数」，因此我们不必访问最后一个元素。
+	for i, n := range nums[:len(nums)-1] {
+		// 找直到 end 前，能跳的最远距离
+		maxPos = max(maxPos, n+i)
+		if i == end { // 遇到边界，就更新边界，并且最少需要步数加一
+			end = maxPos // 更新边界为能跳到的最远距离
 			res++
 		}
 	}
