@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/jump-game-ii/
+// 此题假设一定能跳到最后一个点，如果给的数据跳不到，结果会有问题
 
 package main
 
@@ -9,6 +10,7 @@ func main() {
 }
 
 // 贪心
+// 比起 p0055 的贪心做法，需要额外变量记录边界，因为要输出次数
 func jump(nums []int) int {
 	res := 0
 	end := 0
