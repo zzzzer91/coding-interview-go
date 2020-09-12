@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/combination-sum-iii/
-// 1～9 之间选，每个数字在组合中只允许出现一次
+// 1～9 之间选，每个数字在一个组合中只允许出现一次，并且顺序不同视为相同
 
 package main
 

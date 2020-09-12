@@ -14,7 +14,7 @@ func main() {
 }
 
 func combinationSum2(candidates []int, target int) [][]int {
-	sort.Ints(candidates) // 先要排序
+	sort.Ints(candidates) // 先要排序，方便下面剪枝
 	var res [][]int
 	var comb []int
 	var dfs func(target, u int)
@@ -54,9 +54,6 @@ func combinationSum2_notRight(candidates []int, target int) [][]int {
 	var comb []int
 	var dfs func(target, u int)
 	dfs = func(target, u int) {
-		if target < 0 {
-			return
-		}
 		if target == 0 {
 			temp := make([]int, len(comb))
 			copy(temp, comb)
