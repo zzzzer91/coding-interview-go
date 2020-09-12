@@ -1,4 +1,5 @@
 // https://www.acwing.com/problem/content/844/
+// 排列数，顺序不同视为不同组合
 
 package main
 

@@ -1,4 +1,5 @@
 // https://leetcode-cn.com/problems/combination-sum/
+// 顺序不同视为同一种组合，数组中每个元素都可以在同一组合中使用无数次
 
 package main
 
@@ -14,9 +15,6 @@ func combinationSum(candidates []int, target int) [][]int {
 	var comb []int
 	var dfs func(target, u int)
 	dfs = func(target, u int) {
-		if target < 0 {
-			return
-		}
 		if target == 0 {
 			temp := make([]int, len(comb))
 			copy(temp, comb)
@@ -24,8 +22,12 @@ func combinationSum(candidates []int, target int) [][]int {
 			return
 		}
 		for i := u; i < len(candidates); i++ {
-			comb = append(comb, candidates[i])
-			dfs(target-candidates[i], i) // 因为每个元素可以取无数次，所以 i 不变
+			n := candidates[i]
+			if n > target {
+				continue
+			}
+			comb = append(comb, n)
+			dfs(target-n, i) // 因为每个元素可以取无数次，所以 i 不变
 			comb = comb[:len(comb)-1]
 		}
 	}
