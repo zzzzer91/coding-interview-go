@@ -11,16 +11,17 @@ var a [N]int
 
 func main() {
 	var m int
-	var no int
 	fmt.Scanf("%d", &m)
 	for i := 0; i < m; i++ {
-		fmt.Scanf("%d", no)
-		fmt.Println(no)
-		//if a[no] == no {
-		//	a[no] = 0
-		//	fmt.Println(no)
-		//} else if a[no] == 0 {
-		//	a[no] = no
-		//}
+		fmt.Scanf("%d", &a[i])
+	}
+	set := make(map[int]struct{}, m)
+	for i := m - 1; i >= 0; i-- {
+		tmp := a[i]
+		if _, ok := set[tmp]; !ok {
+			fmt.Println(tmp)
+			set[tmp] = struct{}{}
+		}
+
 	}
 }
