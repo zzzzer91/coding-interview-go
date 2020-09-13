@@ -34,17 +34,9 @@ func (h *IntHeap) Push(x interface{}) {
 	*h = append(*h, x.(int))
 }
 
-func (h *IntHeap) IsEmpty() bool {
-	return len(*h) == 0
-}
-
-func (h *IntHeap) Size() int {
-	return len(*h)
-}
-
 func main() {
 	h := IntHeap{1, 5, 4, 7, 2, 6, 3} // 创建 slice
-	heap.Init(&h)                     // 初始化 heap
+	heap.Init(&h)                     // 初始化 heap，堆为空或没有数据可以不做这一步
 	fmt.Println(h)
 	fmt.Println(heap.Pop(&h)) // 调用 pop
 	heap.Push(&h, 6)          // 调用 push
