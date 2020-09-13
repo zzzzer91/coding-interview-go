@@ -22,7 +22,7 @@ func (d SortData) Swap(i, j int) {
 	d[i], d[j] = d[j], d[j]
 }
 
-type MinHeap SortData
+type MinHeap [][]int
 
 func (h MinHeap) Len() int {
 	return len(h)
