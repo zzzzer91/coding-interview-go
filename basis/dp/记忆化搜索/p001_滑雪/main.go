@@ -1,5 +1,6 @@
 // https://www.acwing.com/problem/content/description/903/
 // 和 https://leetcode-cn.com/problems/word-search/ 有些异曲同工之妙
+// 记忆化搜索是DP的一种实现方式
 
 package main
 
@@ -38,6 +39,7 @@ func dfs(x, y int) int {
 	dp[x][y] = 1 // 刚开始不动也算一种方案
 	for i := 0; i < 4; i++ {
 		a, b := x+dx[i], y+dy[i]
+		// 因为低处不能往高处滑，所以必然不会搜来时的路，就不需要额外状态保存了
 		if a >= 0 && a < r && b >= 0 && b < c && g[a][b] < g[x][y] {
 			dp[x][y] = max(dp[x][y], dfs(a, b)+1)
 		}
