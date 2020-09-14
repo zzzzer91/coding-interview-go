@@ -8,7 +8,7 @@ func main() {
 }
 
 func exist(board [][]byte, word string) bool {
-	dx, dy := []int{-1, 0, 1, 0}, []int{0, -1, 0, 1} // 四个方向
+	dx, dy := []int{-1, 0, 1, 0}, []int{0, 1, 0, -1} // 四个方向
 	rowLen := len(board)
 	colLen := len(board[0])
 	st := make([][]bool, rowLen) // 当前位置是否已被访问过
