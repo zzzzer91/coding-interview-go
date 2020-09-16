@@ -36,7 +36,7 @@ func dfs(u int) {
 	}
 	for j := 0; j < n; j++ {
 		// y = -x + b   =>  b = y + x 这样就能唯一表示一个对角线上的一点
-		// y =  x + b   =>  b = y - x 有可能为负，所以加上偏移量n，不过这样数组范围会变大
+		// y =  x + b   =>  b = y k - x 有可能为负，所以加上偏移量n，不过这样数组范围会变大
 		if col[j] || dg[j+u] || udg[j-u+n] {
 			continue
 		}
