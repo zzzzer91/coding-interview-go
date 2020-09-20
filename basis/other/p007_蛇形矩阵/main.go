@@ -24,11 +24,11 @@ func main() {
 			a[i][rr] = k
 			k++
 		}
-		for i := rr - 1; i >= ll; i-- {
+		for i := rr - 1; i >= ll && tt < bb; i-- {
 			a[bb][i] = k
 			k++
 		}
-		for i := bb - 1; i > tt; i-- {
+		for i := bb - 1; i > tt && ll < rr; i-- {
 			a[i][ll] = k
 			k++
 		}
