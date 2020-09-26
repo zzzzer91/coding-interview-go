@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/path-sum/
+
 package main
 
 type TreeNode struct {
@@ -7,7 +9,6 @@ type TreeNode struct {
 }
 
 func main() {
-
 }
 
 func hasPathSum(root *TreeNode, sum int) bool {
