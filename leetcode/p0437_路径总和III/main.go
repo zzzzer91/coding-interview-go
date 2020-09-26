@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/path-sum-iii/
+
 package main
 
 type TreeNode struct {
@@ -10,22 +12,30 @@ func main() {
 
 }
 
-// 感觉还不够好
+// 双重递归
 func pathSum(root *TreeNode, sum int) int {
-	if root == nil {
-		return 0
+	res := 0
+	var count func(r *TreeNode, tmp int)
+	var dfs func(r *TreeNode)
+	count = func(r *TreeNode, tmp int) {
+		if r == nil {
+			return
+		}
+		tmp -= r.Val
+		if tmp == 0 {
+			res++
+		}
+		count(r.Left, tmp)
+		count(r.Right, tmp)
 	}
-	return sumUp(root, 0, sum) + pathSum(root.Left, sum) + pathSum(root.Right, sum)
-}
-
-func sumUp(root *TreeNode, pre int, sum int) int {
-	if root == nil {
-		return 0
+	dfs = func(r *TreeNode) {
+		if r == nil {
+			return
+		}
+		count(r, sum)
+		dfs(r.Left)
+		dfs(r.Right)
 	}
-	current := pre + root.Val
-	c := 0
-	if current == sum {
-		c = 1
-	}
-	return c + sumUp(root.Left, current, sum) + sumUp(root.Right, current, sum)
+	dfs(root)
+	return res
 }
