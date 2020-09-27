@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/gas-station/
+
 package main
 
 import "math"
@@ -12,7 +14,7 @@ func canCompleteCircuit(gas []int, cost []int) int {
 	minIndex := 0
 	for i := 0; i < len(gas); i++ {
 		sum += gas[i] - cost[i]
-		if sum < min {
+		if sum < min { // 找一个 sum 最小的地方作为起点
 			min = sum
 			minIndex = i
 		}
