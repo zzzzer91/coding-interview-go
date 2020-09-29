@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/binary-tree-postorder-traversal/
+
 package main
 
 type TreeNode struct {
@@ -11,32 +13,25 @@ func main() {
 }
 
 func postorderTraversal(root *TreeNode) []int {
-	if root == nil {
-		return nil
-	}
 	var res []int
 	var stack []*TreeNode
-	stack = append(stack, root)
-	for len(stack) != 0 {
-		node := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		res = append(res, node.Val)
-		if node.Left != nil {
-			stack = append(stack, node.Left)
-		}
-		if node.Right != nil {
-			stack = append(stack, node.Right)
+	var prev *TreeNode
+	for root != nil || len(stack) > 0 {
+		if root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		} else {
+			root = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if root.Right == nil || root.Right == prev {
+				res = append(res, root.Val)
+				prev = root
+				root = nil
+			} else {
+				stack = append(stack, root)
+				root = root.Right
+			}
 		}
 	}
-	reverse(res)
 	return res
-}
-
-func reverse(a []int) {
-	l, r := 0, len(a)-1
-	for l < r {
-		a[l], a[r] = a[r], a[l]
-		l++
-		r--
-	}
 }

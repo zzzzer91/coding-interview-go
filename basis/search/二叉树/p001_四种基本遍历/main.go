@@ -15,10 +15,10 @@ func CreateNode(v int) *TreeNode {
 	return &TreeNode{Val: v}
 }
 
-func preOrder(root *TreeNode) []int {
+func preorderTraversal(root *TreeNode) []int {
 	var res []int
 	var stack []*TreeNode
-	for len(stack) != 0 || root != nil {
+	for root != nil || len(stack) != 0 {
 		if root != nil {
 			res = append(res, root.Val)
 			stack = append(stack, root)
@@ -32,10 +32,10 @@ func preOrder(root *TreeNode) []int {
 	return res
 }
 
-func inOrder(root *TreeNode) []int {
+func inorderTraversal(root *TreeNode) []int {
 	var res []int
 	var stack []*TreeNode
-	for len(stack) != 0 || root != nil {
+	for root != nil || len(stack) != 0 {
 		if root != nil {
 			stack = append(stack, root)
 			root = root.Left
@@ -49,29 +49,26 @@ func inOrder(root *TreeNode) []int {
 	return res
 }
 
-func postOrder(root *TreeNode) []int {
-	if root == nil {
-		return nil
-	}
+func postorderTraversal(root *TreeNode) []int {
 	var res []int
 	var stack []*TreeNode
-	stack = append(stack, root)
-	for len(stack) != 0 {
-		node := stack[len(stack)-1]
-		stack = stack[:len(stack)-1]
-		res = append(res, node.Val)
-		if node.Left != nil {
-			stack = append(stack, node.Left)
+	var prev *TreeNode
+	for root != nil || len(stack) > 0 {
+		if root != nil {
+			stack = append(stack, root)
+			root = root.Left
+		} else {
+			root = stack[len(stack)-1]
+			stack = stack[:len(stack)-1]
+			if root.Right == nil || root.Right == prev {
+				res = append(res, root.Val)
+				prev = root
+				root = nil
+			} else {
+				stack = append(stack, root)
+				root = root.Right
+			}
 		}
-		if node.Right != nil {
-			stack = append(stack, node.Right)
-		}
-	}
-	l, r := 0, len(res)-1
-	for l < r {
-		res[l], res[r] = res[r], res[l]
-		l++
-		r--
 	}
 	return res
 }
@@ -122,11 +119,11 @@ func main() {
 	root.Right.Left = CreateNode(7)
 
 	// 先序遍历
-	fmt.Println(preOrder(root))
+	fmt.Println(preorderTraversal(root))
 	// 中序遍历
-	fmt.Println(inOrder(root))
+	fmt.Println(inorderTraversal(root))
 	// 后序遍历
-	fmt.Println(postOrder(root))
+	fmt.Println(postorderTraversal(root))
 	// 层序遍历
 	fmt.Println(levelOrder(root))
 }
