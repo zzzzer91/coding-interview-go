@@ -49,23 +49,23 @@ func inorderTraversal(root *TreeNode) []int {
 	return res
 }
 
+// 后序遍历相比较另外两种遍历需要一个额外变量记录回溯节点
 func postorderTraversal(root *TreeNode) []int {
 	var res []int
 	var stack []*TreeNode
-	var prev *TreeNode
+	var prev *TreeNode // 记录从哪一个节点回溯过来的
 	for root != nil || len(stack) > 0 {
 		if root != nil {
 			stack = append(stack, root)
 			root = root.Left
 		} else {
 			root = stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
 			if root.Right == nil || root.Right == prev {
+				stack = stack[:len(stack)-1]
 				res = append(res, root.Val)
 				prev = root
 				root = nil
 			} else {
-				stack = append(stack, root)
 				root = root.Right
 			}
 		}
