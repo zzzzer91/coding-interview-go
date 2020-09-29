@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/search-insert-position/
+
 package main
 
 func main() {
@@ -5,17 +7,16 @@ func main() {
 }
 
 func searchInsert(nums []int, target int) int {
-	left, right := 0, len(nums)-1
-	for left <= right {
-		mid := left + (right-left)/2
-		val := nums[mid]
-		if target < val {
-			right = mid - 1
-		} else if target > val {
-			left = mid + 1
+	l, r := 0, len(nums)-1
+	for l <= r {
+		m := l + (r-l)>>1
+		if nums[m] < target {
+			l = m + 1
+		} else if nums[m] > target {
+			r = m - 1
 		} else {
-			return mid
+			return m
 		}
 	}
-	return left
+	return l
 }

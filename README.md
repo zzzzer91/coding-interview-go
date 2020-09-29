@@ -13,14 +13,13 @@
 - 二分法解题模板（来自 https://www.acwing.com/blog/content/31/）：
 
   ```java
-  // 版本 1：
+  // 类型 1：
   // 当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，
   // 其更新操作是r = mid或者l = mid + 1;，计算mid时不需要加1。
   int bsearch1(int l, int r) {
       while (l < r) {
-          // 如果这样写， left + right 在发生整型溢出以后，会变成负数，
-          // 此时如果除以 2，mid 是一个负数，但是经过无符号右移，可以得到在不溢出的情况下正确的结果
-          int mid = (l + r) >>> 1;
+          // 防止溢出
+          int mid = l + (r - l) / 2;
           if (check(mid)) {
               // 答案在区间 [l, mid] 中
               r = mid;
@@ -32,12 +31,12 @@
       return l;
   }
   
-  // 版本 2：
+  // 类型 2：
   // 当我们将区间[l, r]划分成[l, mid - 1]和[mid, r]时，
   // 其更新操作是r = mid - 1或者l = mid;，此时为了防止死循环，计算mid时需要加1。
   int bsearch2(int l, int r) {
       while (l < r) {
-          int mid = (l + r + 1) >>> 1;
+          int mid = l + (r - l + 1) / 2;
           if (check(mid)) {
               l = mid;
           } else {
@@ -50,8 +49,8 @@
   // 与上面对比，有序数组搜索插入，二分查找
   int searchInsert(int[] nums, int target) {
       int l = 0, r = nums.length - 1;
-      while (l <= r) {
-          int mid = (l + r) >>> 1;
+      while (l <= r) { // 注意等于号
+          int mid = l + (r - l) / 2;
           int val = nums[mid];
           if (val < target) {
               l = mid + 1;
