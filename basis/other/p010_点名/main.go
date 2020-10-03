@@ -31,12 +31,7 @@ func f() int {
 			i = (i + 1) % n
 		}
 	}
-	for i := 0; i < n; i++ {
-		if !a[i] {
-			return i + 1
-		}
-	}
-	return -1
+	return i
 }
 
 func f2() int {
@@ -69,4 +64,14 @@ func f2() int {
 		}
 	}
 	return -1
+}
+
+// 公式递推
+// https://blog.csdn.net/u011500062/article/details/72855826
+func f3(n int, m int) int {
+	f := 0
+	for i := 2; i <= n; i++ {
+		f = (f + m) % i
+	}
+	return f
 }
