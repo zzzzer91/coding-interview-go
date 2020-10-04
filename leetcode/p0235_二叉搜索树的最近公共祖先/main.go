@@ -27,3 +27,20 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 		return root
 	}
 }
+
+// 优化，使用迭代
+func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
+	if p.Val > q.Val {
+		p, q = q, p
+	}
+	for root != nil {
+		if root.Val < p.Val {
+			root = root.Right
+		} else if root.Val > q.Val {
+			root = root.Left
+		} else {
+			break
+		}
+	}
+	return root
+}
