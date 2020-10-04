@@ -30,7 +30,7 @@ func lowestCommonAncestor(root, p, q *TreeNode) *TreeNode {
 
 // 优化，使用迭代
 func lowestCommonAncestor2(root, p, q *TreeNode) *TreeNode {
-	if p.Val > q.Val {
+	if p.Val > q.Val { // 保证 p.val < q.val
 		p, q = q, p
 	}
 	for root != nil {
