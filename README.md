@@ -4,63 +4,63 @@
 
 - 时刻考虑时间复杂度。
 
-- 时刻考虑考虑溢出问题，感觉有溢出可能就用 `long`。
+- 时刻考虑考虑溢出问题。
+
+- 看见有序数组，首先想到二分法，或者双指针扫描。
 
 - 使用二分法需要满足性质：1、区间能被分成两部分；2、一半区间满足某一性质，另一半区间不满足同一性质。
 
-- 看见有序数组，首先想到二分法，或者左右指针扫描。
-
 - 二分法解题模板（来自 https://www.acwing.com/blog/content/31/）：
 
-  ```java
+  ```go
   // 类型 1：
-  // 当我们将区间[l, r]划分成[l, mid]和[mid + 1, r]时，
-  // 其更新操作是r = mid或者l = mid + 1;，计算mid时不需要加1。
-  int bsearch1(int l, int r) {
-      while (l < r) {
+  // 当我们将区间[l, r]划分成[l, m]和[m + 1, r]时，
+  // 其更新操作是r = m或者l = m + 1;，计算m时不需要加1。
+  func search1(l, r int) int {
+      for l < r {
           // 防止溢出
-          int mid = l + (r - l) / 2;
-          if (check(mid)) {
-              // 答案在区间 [l, mid] 中
-              r = mid;
+          m := l + (r - l) >> 1
+          if check(m) {
+              // 答案在区间 [l, m] 中
+              r = m
           } else {
-              // 否则答案在区间 [mid+1, r] 中
-              l = mid + 1;
+              // 否则答案在区间 [m+1, r] 中
+              l = m + 1
           }
       }
-      return l;
+      return l
   }
   
   // 类型 2：
-  // 当我们将区间[l, r]划分成[l, mid - 1]和[mid, r]时，
-  // 其更新操作是r = mid - 1或者l = mid;，此时为了防止死循环，计算mid时需要加1。
-  int bsearch2(int l, int r) {
-      while (l < r) {
-          int mid = l + (r - l + 1) / 2;
-          if (check(mid)) {
-              r = mid - 1;
+  // 当我们将区间[l, r]划分成[l, m - 1]和[m, r]时，
+  // 其更新操作是r = m - 1或者l = m;，此时为了防止死循环，计算m时需要加1。
+  func search2(l, r int) int {
+      for l < r {
+          m := l + (r - l + 1) >> 1
+          if (check(m)) {
+              r = m - 1
           } else {
-              l = mid;
+              l = m
           }
       }
-      return l;
+      return l
   }
   
-  // 与上面对比，有序数组搜索插入，二分查找
-  int searchInsert(int[] nums, int target) {
-      int l = 0, r = nums.length - 1;
-      while (l <= r) { // 注意等于号
-          int mid = l + (r - l) / 2;
-          int val = nums[mid];
-          if (val < target) {
-              l = mid + 1;
-          } else if (val > target) {
-              r = mid - 1;
-          } else {
-              return mid;
+  // 类型 3，与上面对比，有序数组搜索插入，二分查找
+  func search3(nums []int, target int) int {
+      l, r := 0, len(nums)-1
+      for l <= r {
+          m := l + (r-l)>>1
+          if nums[m] < target {
+              l = m + 1
+            } else if nums[m] > target {
+              r = m - 1
+            } else {
+              return m
+            }
           }
       }
-      return l;
+      return l
   }
   ```
 
@@ -70,9 +70,9 @@
 
 - 位运算常用：
 
-  ```java
+  ```go
   // 1、判断一个数字 x 二进制下第 i 位是不是等于1
-  if ((x & (1 << (i - 1)) > 0) {
+  if (x & (1 << (i - 1)) > 0 {
       // ...
   }
   
@@ -83,7 +83,7 @@
   x & (x - 1)
 
   // 4、判断数字 x 中只有 1 位为 1
-  if ((i & (i - 1)) == 0) {
+  if (i & (i - 1)) == 0 {
       // ...
   }
 
