@@ -38,9 +38,9 @@
       while (l < r) {
           int mid = l + (r - l + 1) / 2;
           if (check(mid)) {
-              l = mid;
-          } else {
               r = mid - 1;
+          } else {
+              l = mid;
           }
       }
       return l;
