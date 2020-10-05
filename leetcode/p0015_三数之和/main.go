@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/3sum/
+
 package main
 
 import "sort"
