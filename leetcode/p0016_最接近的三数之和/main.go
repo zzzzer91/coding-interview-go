@@ -1,4 +1,4 @@
-// https://leetcode-cn.com/problems/3sum/
+// https://leetcode-cn.com/problems/3sum-closest/
 
 package main
 
@@ -8,13 +8,11 @@ func main() {
 
 }
 
-func threeSum(nums []int) [][]int {
+func threeSumClosest(nums []int, target int) int {
 	sort.Ints(nums)
-	var res [][]int
+	var res int
+	minDis := int(1e9)
 	for i := 0; i < len(nums)-2; i++ {
-		if nums[i] > 0 {
-			break
-		}
 		if i > 0 && nums[i] == nums[i-1] {
 			continue
 		}
@@ -29,16 +27,26 @@ func threeSum(nums []int) [][]int {
 				continue
 			}
 			sum := nums[i] + nums[l] + nums[r]
-			if sum < 0 {
+			tmp := abs(sum - target)
+			if tmp < minDis {
+				res = sum
+				minDis = tmp
+			}
+			if sum < target {
 				l++
-			} else if sum > 0 {
+			} else if sum > target {
 				r--
 			} else {
-				res = append(res, []int{nums[i], nums[l], nums[r]})
-				l++
-				r--
+				return sum
 			}
 		}
 	}
 	return res
+}
+
+func abs(a int) int {
+	if a < 0 {
+		return -a
+	}
+	return a
 }
