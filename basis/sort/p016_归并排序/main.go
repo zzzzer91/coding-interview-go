@@ -12,7 +12,7 @@ func mergeSort(a []int) {
 	if len(a) <= 1 {
 		return
 	}
-	mid := (len(a) - 1) / 2
+	mid := (len(a) - 1) >> 1
 	mergeSort(a[:mid+1]) // 使左半部分有序
 	mergeSort(a[mid+1:]) // 使右半部分有序
 	merge(a, mid)
