@@ -33,10 +33,7 @@ func (this *Trie) Search(word string) bool {
 		}
 		this = this.next[idx]
 	}
-	if this.isEnd == false {
-		return false
-	}
-	return true
+	return this.isEnd
 }
 
 /** Returns if there is any word in the trie that starts with the given prefix. */
