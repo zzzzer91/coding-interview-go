@@ -12,7 +12,7 @@ func NewUnionFind(n int) UnionFind {
 
 func (uf UnionFind) Find(x int) int {
 	if uf[x] != x {
-		uf[x] = uf.Find(uf[x])
+		uf[x] = uf.Find(uf[x]) // 路径压缩
 	}
 	return uf[x]
 }
