@@ -5,6 +5,9 @@ package main
 
 import "container/heap"
 
+func main() {
+}
+
 type ListNode struct {
 	Val  int
 	Next *ListNode
@@ -32,9 +35,6 @@ func (h *MinHeap) Pop() interface{} {
 	tmp := (*h)[len(*h)-1]
 	*h = (*h)[:len(*h)-1]
 	return tmp
-}
-
-func main() {
 }
 
 // 堆
