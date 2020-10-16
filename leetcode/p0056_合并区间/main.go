@@ -1,19 +1,31 @@
+// https://leetcode-cn.com/problems/merge-intervals/
+
 package main
 
 import "sort"
 
-type Data [][]int
+func main() {
 
-func (d Data) Len() int {
-	return len(d)
 }
 
-func (d Data) Less(i, j int) bool {
-	return d[i][0] < d[j][0]
-}
-
-func (d Data) Swap(i, j int) {
-	d[i], d[j] = d[j], d[i]
+func merge(intervals [][]int) [][]int {
+	if len(intervals) == 0 {
+		return nil
+	}
+	var res [][]int
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	res = append(res, intervals[0])
+	for i := 1; i < len(intervals); i++ {
+		cur, pre := intervals[i], res[len(res)-1]
+		if cur[0] <= pre[1] {
+			res[len(res)-1][1] = max(pre[1], cur[1])
+		} else {
+			res = append(res, cur)
+		}
+	}
+	return res
 }
 
 func max(a, b int) int {
@@ -21,25 +33,4 @@ func max(a, b int) int {
 		return a
 	}
 	return b
-}
-
-func main() {
-
-}
-
-// 先根据前一个值排序
-func merge(intervals [][]int) [][]int {
-	if len(intervals) == 0 {
-		return nil
-	}
-	sort.Sort(Data(intervals))
-	res := [][]int{intervals[0]}
-	for i := 1; i < len(intervals); i++ {
-		if res[len(res)-1][1] < intervals[i][0] {
-			res = append(res, intervals[i])
-		} else {
-			res[len(res)-1][1] = max(res[len(res)-1][1], intervals[i][1])
-		}
-	}
-	return res
 }
