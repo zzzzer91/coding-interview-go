@@ -19,8 +19,7 @@ func removeNthFromEnd(head *ListNode, n int) *ListNode {
 		fastP = fastP.Next
 	}
 	for fastP.Next != nil {
-		slowP = slowP.Next
-		fastP = fastP.Next
+		slowP, fastP = slowP.Next, fastP.Next
 	}
 	slowP.Next = slowP.Next.Next
 	return fakeHead.Next
@@ -34,7 +33,7 @@ func removeNthFromEnd2(head *ListNode, n int) *ListNode {
 	if fastP == nil { // 只有1个节点的情况
 		return head.Next
 	}
-	for fastP != nil && fastP.Next != nil {
+	for fastP.Next != nil {
 		slowP, fastP = slowP.Next, fastP.Next
 	}
 	slowP.Next = slowP.Next.Next
