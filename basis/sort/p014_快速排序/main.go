@@ -6,7 +6,7 @@ import (
 
 func main() {
 	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10, 0}
-	// a := []int{1, 2}
+	a = []int{-1, -5, 2, 0, -5}
 	quickSort(a)
 	fmt.Println(a)
 }
@@ -15,7 +15,12 @@ func quickSort(a []int) {
 	if len(a) <= 1 {
 		return
 	}
+	pivotIdx := partition(a)
+	quickSort(a[:pivotIdx])
+	quickSort(a[pivotIdx+1:])
+}
 
+func partition(a []int) int {
 	l, r := 0, len(a)-1
 	// 最左边数的作为枢纽，但效果不一定好
 	pivot := a[l]
@@ -37,9 +42,7 @@ func quickSort(a []int) {
 	}
 	// 此时 l == r，所以哪个都无所谓
 	a[l] = pivot
-
-	quickSort(a[:l])
-	quickSort(a[l+1:])
+	return l
 }
 
 // median3 选出数组最左边、中间、最右边的中间值，
