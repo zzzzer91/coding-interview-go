@@ -1,4 +1,4 @@
-//
+// https://leetcode-cn.com/problems/partition-equal-subset-sum/submissions/
 
 package main
 
@@ -24,6 +24,7 @@ func canPartition(nums []int) bool {
 		return false
 	}
 
+	// 背包问题
 	dp := make([]bool, sum+1)
 	dp[0] = true
 	for i := range nums {
