@@ -15,7 +15,7 @@ func triangleNumber(nums []int) int {
 		l, r := 0, i-1
 		for l < r {
 			if nums[l]+nums[r] > nums[i] {
-				res += r - l // l 及右边的数不需要再算了，因为排完序了
+				res += r - l // l 右边的数不需要再算了，因为升序排序过了，必然大于
 				r--
 			} else {
 				l++
