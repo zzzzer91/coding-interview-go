@@ -6,6 +6,7 @@ func main() {
 
 }
 
+// 如果同时记录下字母第一次出现位置和最后一次出现位置，那么这题就可以转换为合并区间
 func partitionLabels(S string) []int {
 	var res []int
 	var m [26]int
