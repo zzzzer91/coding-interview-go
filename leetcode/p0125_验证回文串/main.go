@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/valid-palindrome/
+
 package main
 
 func main() {
@@ -5,22 +7,22 @@ func main() {
 }
 
 func isPalindrome(s string) bool {
-	left, right := 0, len(s)-1
-	for left < right {
-		cLeft, cRight := s[left], s[right]
-		if !isAlphanumeric(cLeft) {
-			left++
+	l, r := 0, len(s)-1
+	for l < r {
+		lc, rc := s[l], s[r]
+		if !isAlphanumeric(lc) {
+			l++
 			continue
 		}
-		if !isAlphanumeric(cRight) {
-			right--
+		if !isAlphanumeric(rc) {
+			r--
 			continue
 		}
-		if toLowerCase(cLeft) != toLowerCase(cRight) {
+		if toLowerCase(lc) != toLowerCase(rc) {
 			return false
 		}
-		left++
-		right--
+		l++
+		r--
 	}
 	return true
 }
