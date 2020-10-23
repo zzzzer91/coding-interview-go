@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/palindrome-linked-list/
+
 package main
 
 type ListNode struct {
@@ -19,17 +21,14 @@ func isPalindrome(head *ListNode) bool {
 	// 当链表长度为奇数，slowP 指向最中间那个节点
 	slowP, fastP := head, head
 	for fastP.Next != nil && fastP.Next.Next != nil {
-		slowP = slowP.Next
-		fastP = fastP.Next.Next
+		slowP, fastP = slowP.Next, fastP.Next.Next
 	}
-
 	p := reverse(slowP.Next)
 	for p != nil {
 		if head.Val != p.Val {
 			return false
 		}
-		head = head.Next
-		p = p.Next
+		head, p = head.Next, p.Next
 	}
 	return true
 }
@@ -37,10 +36,7 @@ func isPalindrome(head *ListNode) bool {
 func reverse(head *ListNode) *ListNode {
 	fakeHead := ListNode{}
 	for head != nil {
-		temp := head.Next
-		head.Next = fakeHead.Next
-		fakeHead.Next = head
-		head = temp
+		fakeHead.Next, head, head.Next = head, head.Next, fakeHead.Next
 	}
 	return fakeHead.Next
 }
