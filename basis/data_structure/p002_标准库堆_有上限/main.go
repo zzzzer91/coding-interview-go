@@ -26,11 +26,11 @@ func (h MinHeap) Swap(i, j int) {
 
 func (h *MinHeap) Push(x interface{}) {
 	if h.capacity == h.Len() {
-		if x.(int) < h.data[0] {
-			heap.Pop(h) // 注意要用标准库的函数，而不能直接用 Pop() 方法
-		} else {
-			return
+		x := x.(int)
+		if x < h.data[0] {
+			h.data[0] = x
 		}
+		return
 	}
 	h.data = append(h.data, x.(int))
 }

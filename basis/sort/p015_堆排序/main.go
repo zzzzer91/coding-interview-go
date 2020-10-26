@@ -18,15 +18,15 @@ func main() {
 // 这样会得到n个元素的次小值。
 // 如此反复执行，便能得到一个有序序列了。
 func heapSort(a []int) {
-	buildHeap(a)
+	initHeap(a)
 	for i := len(a) - 1; i >= 1; i-- {
 		swap(a, 0, i)
 		heapify(a[:i], 0)
 	}
 }
 
-// buildHeap 创建堆
-func buildHeap(a []int) {
+// initHeap 初始化堆
+func initHeap(a []int) {
 	// 第一个非叶子结点（从右往左）坐标 len(a)/2-1
 	for i := len(a)/2 - 1; i >= 0; i-- {
 		// 从第一个非叶子节点往上调整
