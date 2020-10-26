@@ -6,10 +6,13 @@ import (
 )
 
 func main() {
-	strs := []string{"a", "bc", "def"}
+	a := [][]int{{2, 5}, {2, 3}, {1, 6}, {4, 10}}
 	// 自定义排序规则
-	sort.Slice(strs, func(i, j int) bool {
-		return len(strs[i]) > len(strs[j])
+	sort.Slice(a, func(i, j int) bool {
+		if a[i][0] == a[j][0] {
+			return a[i][1] < a[j][1]
+		}
+		return a[i][0] < a[j][0]
 	})
-	fmt.Println(strs)
+	fmt.Println(a)
 }

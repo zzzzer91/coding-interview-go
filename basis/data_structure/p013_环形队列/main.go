@@ -19,7 +19,7 @@ func New(cap int) ArrayQueue {
 }
 
 func (q *ArrayQueue) Cap() int {
-	return cap(q.data)
+	return q.cap
 }
 
 func (q *ArrayQueue) Len() int {
