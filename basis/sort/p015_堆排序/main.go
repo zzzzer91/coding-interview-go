@@ -39,21 +39,21 @@ func buildHeap(a []int) {
 // 小顶堆：a[i] <= a[2i+1] && a[i] <= a[2i+2]
 // heapify 调整堆，从上往下
 func heapify(a []int, i int) {
-	tmp := i
+	p := i
 	// 设当前节点坐标为 i，其 parent 为 (i-1)/2，
 	// lChild 为 2i+1，rChild 为 2i+2。
-	l := i*2 + 1
-	r := l + 1
-	// 如果 l >= len(a)，证明没有叶子节点
-	if l < len(a) && less(a, tmp, l) {
-		tmp = l
+	lc := i*2 + 1
+	rc := lc + 1
+	// 如果 lc >= len(a)，证明没有叶子节点
+	if lc < len(a) && less(a, p, lc) {
+		p = lc
 	}
-	if r < len(a) && less(a, tmp, r) {
-		tmp = r
+	if rc < len(a) && less(a, p, rc) {
+		p = rc
 	}
-	if i != tmp {
-		swap(a, i, tmp)
-		heapify(a, tmp)
+	if i != p {
+		swap(a, i, p)
+		heapify(a, p)
 	}
 }
 
