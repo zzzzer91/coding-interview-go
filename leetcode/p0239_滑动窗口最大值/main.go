@@ -27,7 +27,7 @@ func maxSlidingWindow(nums []int, k int) []int {
 	return res
 }
 
-// 使用数组模拟，快大概30%
+// 使用数组模拟队列，快大概30%
 func maxSlidingWindow2(nums []int, k int) []int {
 	res := make([]int, 0, len(nums)-k+1)
 	q := make([]int, 0, len(nums))
