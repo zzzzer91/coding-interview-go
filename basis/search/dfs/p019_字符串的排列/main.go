@@ -21,7 +21,7 @@ func permutation(s string) []string {
 				continue
 			}
 			visited[bytes[i]-'a'] = true
-			bytes[i], bytes[u] = bytes[u], bytes[i]
+			bytes[i], bytes[u] = bytes[u], bytes[i] // 非常巧妙
 			dfs(u + 1)
 			bytes[i], bytes[u] = bytes[u], bytes[i]
 		}
