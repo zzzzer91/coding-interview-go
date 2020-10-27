@@ -1,12 +1,14 @@
+// https://leetcode-cn.com/problems/remove-duplicates-from-sorted-list/
+
 package main
+
+func main() {
+
+}
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
-}
-
-func main() {
-
 }
 
 func deleteDuplicates(head *ListNode) *ListNode {
