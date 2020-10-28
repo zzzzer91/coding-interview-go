@@ -50,7 +50,7 @@ func getLeastNumbers2(arr []int, k int) []int {
 	if k == 0 {
 		return nil
 	}
-	res := MinHeap{data: arr[:k], capacity: k}
+	res := MaxHeap{data: arr[:k], capacity: k}
 	heap.Init(&res)
 	for _, v := range arr[k:] {
 		heap.Push(&res, v)
@@ -58,24 +58,24 @@ func getLeastNumbers2(arr []int, k int) []int {
 	return res.data
 }
 
-type MinHeap struct {
+type MaxHeap struct {
 	data     []int
 	capacity int
 }
 
-func (h MinHeap) Len() int {
+func (h MaxHeap) Len() int {
 	return len(h.data)
 }
 
-func (h MinHeap) Less(i, j int) bool {
+func (h MaxHeap) Less(i, j int) bool {
 	return h.data[i] > h.data[j]
 }
 
-func (h MinHeap) Swap(i, j int) {
+func (h MaxHeap) Swap(i, j int) {
 	h.data[i], h.data[j] = h.data[j], h.data[i]
 }
 
-func (h *MinHeap) Push(x interface{}) {
+func (h *MaxHeap) Push(x interface{}) {
 	if h.capacity == h.Len() {
 		if x.(int) < h.data[0] {
 			heap.Pop(h) // 注意要用标准库的函数，而不能直接用 Pop() 方法
@@ -86,7 +86,7 @@ func (h *MinHeap) Push(x interface{}) {
 	h.data = append(h.data, x.(int))
 }
 
-func (h *MinHeap) Pop() interface{} {
+func (h *MaxHeap) Pop() interface{} {
 	tmp := h.data[len(h.data)-1]
 	h.data = h.data[:len(h.data)-1]
 	return tmp
