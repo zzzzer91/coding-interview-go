@@ -8,6 +8,7 @@ func main() {
 
 }
 
+// 记忆化，memo[i] 代表记录 s[i:] 的结果
 func wordBreak(s string, wordDict []string) []string {
 	wordSet := make(map[string]bool, len(wordDict))
 	for _, w := range wordDict {
