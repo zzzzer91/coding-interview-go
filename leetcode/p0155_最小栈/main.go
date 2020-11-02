@@ -1,4 +1,10 @@
+// https://leetcode-cn.com/problems/min-stack/
+
 package main
+
+func main() {
+
+}
 
 type MinStack struct {
 	mins []int
@@ -45,8 +51,4 @@ func (this *MinStack) GetMin() int {
 	}
 
 	return this.mins[len(this.mins)-1]
-}
-
-func main() {
-
 }
