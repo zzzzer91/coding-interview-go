@@ -21,7 +21,8 @@ func wordBreak(s string, wordDict []string) []string {
 		if memo[u] != nil {
 			return memo[u]
 		}
-		var wordList [][]string
+		// 很奇怪，这里不能用 var wordList [][]string，否则会超时
+		wordList := [][]string{}
 		for i := u + 1; i < n; i++ {
 			word := s[u:i]
 			if wordSet[word] {
