@@ -1,12 +1,14 @@
+// https://leetcode-cn.com/problems/delete-node-in-a-linked-list/
+
 package main
+
+func main() {
+
+}
 
 type ListNode struct {
 	Val  int
 	Next *ListNode
-}
-
-func main() {
-
 }
 
 func deleteNode(node *ListNode) {
