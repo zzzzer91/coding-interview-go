@@ -29,6 +29,7 @@ func (h *MinHeap) Push(x interface{}) {
 		x := x.(int)
 		if x < h.data[0] {
 			h.data[0] = x
+			heap.Fix(h, 0) // 重新调整堆，效率比 pop 后 push 要快
 		}
 		return
 	}
