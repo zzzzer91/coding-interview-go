@@ -14,7 +14,7 @@ func canCompleteCircuit(gas []int, cost []int) int {
 	minIndex := 0
 	for i := 0; i < len(gas); i++ {
 		sum += gas[i] - cost[i]
-		if sum < min { // 找一个 sum 最小的地方作为起点
+		if sum < min {
 			min = sum
 			minIndex = i
 		}
@@ -22,5 +22,5 @@ func canCompleteCircuit(gas []int, cost []int) int {
 	if sum < 0 {
 		return -1
 	}
-	return (minIndex + 1) % len(gas)
+	return (minIndex + 1) % len(gas) // 找一个 sum 最小的地方的下一个点作为起点
 }
