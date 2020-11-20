@@ -17,9 +17,7 @@ type Pair struct {
 func frequencySort(s string) string {
 	m := [128]int{}
 	for i := range s {
-		if s[i] > 0 && s[i] < 128 {
-			m[s[i]]++
-		}
+		m[s[i]]++
 	}
 	var arr []Pair
 	for i := 0; i < 128; i++ {
@@ -47,9 +45,7 @@ func frequencySort(s string) string {
 func frequencySort2(s string) string {
 	m := [128]int{}
 	for i := range s {
-		if s[i] > 0 && s[i] < 128 {
-			m[s[i]]++
-		}
+		m[s[i]]++
 	}
 	buckets := make([][]byte, len(s)+1) // 某个字符出现频率最多为 len(s)
 	for i := 0; i < 128; i++ {

@@ -11,11 +11,12 @@ func main() {
 // 可视化见 https://visualgo.net/en/sorting
 func insertionSort(a []int) {
 	for i := 1; i < len(a); i++ {
-		temp := a[i]
-		j := i
-		for ; j > 0 && temp < a[j-1]; j-- {
-			a[j] = a[j-1]
+		temp := a[i] // 暂存该值
+		pos := i
+		for pos > 0 && temp < a[pos-1] { // 将该值之前比该值大的元素往后诺
+			a[pos] = a[pos-1]
+			pos--
 		}
-		a[j] = temp
+		a[pos] = temp
 	}
 }
