@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/valid-anagram/
+
 package main
 
 import "unicode/utf8"
@@ -11,15 +13,15 @@ func isAnagram(s string, t string) bool {
 	if len(s) != len(t) {
 		return false
 	}
-	m := make([]int, 26)
-	for i, _ := range s {
+	m := [26]int{}
+	for i := range s {
 		m[s[i]-'a']++
-		m[t[i]-'a']--
 	}
-	for _, i := range m {
-		if i != 0 {
+	for i := range t {
+		if m[t[i]-'a'] == 0 {
 			return false
 		}
+		m[t[i]-'a']--
 	}
 	return true
 }
