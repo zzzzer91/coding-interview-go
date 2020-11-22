@@ -26,8 +26,26 @@ func isAnagram(s string, t string) bool {
 	return true
 }
 
-// 假设输入的是utf8
+// 字符串长时更快
 func isAnagram2(s string, t string) bool {
+	if len(s) != len(t) {
+		return false
+	}
+	m := [26]int{}
+	for i := range s {
+		m[s[i]-'a']++
+		m[t[i]-'a']--
+	}
+	for i := 0; i < 26; i++ {
+		if m[i] != 0 {
+			return false
+		}
+	}
+	return true
+}
+
+// 假设输入的是utf8
+func isAnagram3(s string, t string) bool {
 	if utf8.RuneCountInString(s) != utf8.RuneCountInString(t) {
 		return false
 	}
