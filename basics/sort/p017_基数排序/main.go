@@ -6,7 +6,7 @@ import "fmt"
 
 func main() {
 	// 都是正数
-	a := []int{1, 3, 5, 7, 9, 2, 4, 6, 8, 10, 0}
+	a := []int{1, 3, 5, 7, 9, 2, 4, 6, 8, 99, 10, 1111}
 	fmt.Println(RadixSort(a))
 }
 
@@ -24,7 +24,7 @@ func RadixSort(nums []int) []int {
 			digit := v / exp % 10
 			cnt[digit]++
 		}
-		for i := 1; i < 10; i++ {
+		for i := 1; i < 10; i++ { // 用于下面分散到 buf 中， cnt[10] == len(nums)
 			cnt[i] += cnt[i-1]
 		}
 		for i := n - 1; i >= 0; i-- {
