@@ -20,9 +20,11 @@ func spiralOrder(matrix [][]int) []int {
 		for i := tt + 1; i <= bb; i++ {
 			res = append(res, matrix[i][rr])
 		}
+		// && tt < bb 为了应对行数是奇数
 		for i := rr - 1; i >= ll && tt < bb; i-- {
 			res = append(res, matrix[bb][i])
 		}
+		// && ll < rr 为了应对列数是奇数
 		for i := bb - 1; i > tt && ll < rr; i-- {
 			res = append(res, matrix[i][ll])
 		}
