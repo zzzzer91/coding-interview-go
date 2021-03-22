@@ -67,22 +67,6 @@ func setZeroes2(matrix [][]int) {
 		}
 	}
 
-	// 根据第一行和第一列来迭代矩阵将矩阵置0
-	for i := 1; i < rowLen; i++ {
-		if matrix[i][0] == 0 {
-			for j := 1; j < colLen; j++ {
-				matrix[i][j] = 0
-			}
-		}
-	}
-	for i := 1; i < colLen; i++ {
-		if matrix[0][i] == 0 {
-			for j := 1; j < rowLen; j++ {
-				matrix[j][i] = 0
-			}
-		}
-	}
-
 	// 判断第一行和第一列是否需要全部置0
 	if rowFlag {
 		for i := 0; i < rowLen; i++ {
