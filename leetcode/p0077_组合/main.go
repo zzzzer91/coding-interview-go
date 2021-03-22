@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/combinations/
+
 package main
 
 func main() {
@@ -5,22 +7,26 @@ func main() {
 }
 
 func combine(n int, k int) [][]int {
-	a := make([]int, 0, k)
 	var res [][]int
-	var f func(u int)
-	f = func(u int) {
-		if len(a) == k {
+	comb := make([]int, 0, k)
+	var dfs func(u int)
+	dfs = func(u int) {
+		if len(comb) == k {
 			temp := make([]int, k)
-			copy(temp, a)
+			copy(temp, comb)
 			res = append(res, temp)
 			return
 		}
-		for i := u + 1; i <= n; i++ {
-			a = append(a, i)
-			f(i)
-			a = a[:len(a)-1]
+		// i <= n-(k-len(comb))+1 剪枝
+		// 如果 n = 7, k = 4，
+		// 从 55 开始搜索就已经没有意义了，
+		// 这是因为：即使把 55 选上，后面的数只有 66 和 77，一共就 33 个候选数，凑不出 44 个数的组合。
+		for i := u; i <= n-(k-len(comb))+1; i++ {
+			comb = append(comb, i)
+			dfs(i + 1)
+			comb = comb[:len(comb)-1]
 		}
 	}
-	f(0)
+	dfs(1)
 	return res
 }

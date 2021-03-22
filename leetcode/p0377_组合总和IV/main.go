@@ -30,7 +30,7 @@ func combinationSum4(nums []int, target int) int {
 }
 
 // 暴力，超时
-func combinationSum4_(nums []int, target int) int {
+func combinationSum4_2(nums []int, target int) int {
 	res := 0
 	var dfs func(target int)
 	dfs = func(target int) {
