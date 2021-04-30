@@ -32,3 +32,36 @@ func exist(board [][]byte, word string) bool {
 	}
 	return false
 }
+
+// 省略一个额外数组
+func exist2(board [][]byte, word string) bool {
+	if len(board) == 0 {
+		return false
+	}
+	m, n := len(board), len(board[0])
+
+	var dfs func(u, x, y int) bool
+	dfs = func(u, x, y int) bool {
+		if x < 0 || x >= m || y < 0 || y >= n || board[x][y] != word[u] {
+			return false
+		}
+		if u == len(word)-1 {
+			return true
+		}
+		u += 1
+		temp := board[x][y]
+		board[x][y] = '#'
+		res := dfs(u, x+1, y) || dfs(u, x-1, y) || dfs(u, x, y+1) || dfs(u, x, y-1)
+		board[x][y] = temp
+		return res
+	}
+
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if dfs(0, i, j) {
+				return true
+			}
+		}
+	}
+	return false
+}

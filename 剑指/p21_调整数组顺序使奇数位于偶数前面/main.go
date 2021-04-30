@@ -2,8 +2,10 @@
 
 package main
 
-func main() {
+import "fmt"
 
+func main() {
+	fmt.Println(exchange([]int{1, 2, 3, 4}))
 }
 
 func exchange(nums []int) []int {
@@ -16,6 +18,8 @@ func exchange(nums []int) []int {
 			r--
 		}
 		nums[l], nums[r] = nums[r], nums[l]
+		l++
+		r--
 	}
 	return nums
 }
