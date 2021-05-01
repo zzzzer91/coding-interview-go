@@ -27,11 +27,12 @@ func (this *MinStack) Pop() {
 	if len(this.stack2) == 0 {
 		return
 	}
-	n := this.stack2[len(this.stack2)-1]
-	this.stack2 = this.stack2[:len(this.stack2)-1]
-	if n == this.stack1[len(this.stack1)-1] {
-		this.stack1 = this.stack1[:len(this.stack1)-1]
+	stack1TopIdx := len(this.stack1) - 1
+	stack2TopIdx := len(this.stack2) - 1
+	if this.stack2[stack2TopIdx] == this.stack1[stack1TopIdx] {
+		this.stack1 = this.stack1[:stack1TopIdx]
 	}
+	this.stack2 = this.stack2[:stack2TopIdx]
 }
 
 func (this *MinStack) Top() int {

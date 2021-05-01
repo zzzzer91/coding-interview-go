@@ -1,3 +1,8 @@
+// 冒泡排序
+// 属于稳定排序
+// 平均时 O(n²)，最坏时 O(n²)，最好时 O(n)
+// 空 O(1)
+
 package main
 
 import "fmt"

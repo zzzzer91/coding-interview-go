@@ -19,12 +19,12 @@ func isSymmetric(root *TreeNode) bool {
 	return f(root.Left, root.Right)
 }
 
-func f(node1, node2 *TreeNode) bool {
-	if node1 == nil && node2 == nil {
+func f(l, r *TreeNode) bool {
+	if l == nil && r == nil {
 		return true
 	}
-	if node1 == nil || node2 == nil {
+	if l == nil || r == nil {
 		return false
 	}
-	return node1.Val == node2.Val && f(node1.Left, node2.Right) && f(node1.Right, node2.Left)
+	return l.Val == r.Val && f(l.Left, r.Right) && f(l.Right, r.Left)
 }

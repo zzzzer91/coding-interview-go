@@ -21,34 +21,32 @@ func levelOrder(root *TreeNode) [][]int {
 	var res [][]int
 	q := list.New()
 	q.PushBack(root)
-	flag := false // flag 为 true，则反向打印
+	flag := true
 	for q.Len() > 0 {
-		var temp []int
-		if flag {
-			for i := q.Len(); i > 0; i-- {
-				root = q.Remove(q.Back()).(*TreeNode)
-				temp = append(temp, root.Val)
-				if root.Right != nil {
-					q.PushFront(root.Right)
+		var row []int
+		for i := q.Len(); i > 0; i-- {
+			var node *TreeNode
+			if flag {
+				node = q.Remove(q.Front()).(*TreeNode)
+				if node.Left != nil {
+					q.PushBack(node.Left)
 				}
-				if root.Left != nil {
-					q.PushFront(root.Left)
+				if node.Right != nil {
+					q.PushBack(node.Right)
 				}
-			}
-		} else {
-			for i := q.Len(); i > 0; i-- {
-				root = q.Remove(q.Front()).(*TreeNode)
-				temp = append(temp, root.Val)
-				if root.Left != nil {
-					q.PushBack(root.Left)
+			} else {
+				node = q.Remove(q.Back()).(*TreeNode)
+				if node.Right != nil {
+					q.PushFront(node.Right)
 				}
-				if root.Right != nil {
-					q.PushBack(root.Right)
+				if node.Left != nil {
+					q.PushFront(node.Left)
 				}
 			}
+			row = append(row, node.Val)
 		}
 		flag = !flag
-		res = append(res, temp)
+		res = append(res, row)
 	}
 	return res
 }

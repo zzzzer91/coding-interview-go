@@ -13,6 +13,7 @@ type TreeNode struct {
 }
 
 func isSubStructure(A *TreeNode, B *TreeNode) bool {
+	// 出现空树，匹配失败
 	if A == nil || B == nil {
 		return false
 	}
@@ -20,9 +21,11 @@ func isSubStructure(A *TreeNode, B *TreeNode) bool {
 }
 
 func f(A *TreeNode, B *TreeNode) bool {
+	// 当节点 B 为空：说明树 B 已匹配完成
 	if B == nil {
 		return true
 	}
+	// 当节点 A 为空：说明已经越过树 A 叶子节点，即匹配失败
 	if A == nil {
 		return false
 	}

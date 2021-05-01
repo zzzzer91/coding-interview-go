@@ -1,3 +1,8 @@
+// 快速排序
+// 属于不稳定排序
+// 平均时 O(nlog₂n)，最坏时 O(n²)，最好时 O(nlog₂n)
+// 空 O(log₂n)
+
 package main
 
 import (
@@ -5,7 +10,7 @@ import (
 )
 
 func main() {
-	a := []int{-1, 3, -5, 7, -9, 2, -4, 6, -8, 10, 0}
+	a := []int{0, -1, 3, -5, 7, -9, 2, -4, 6, -8, 10, 0}
 	a = []int{-1, -5, 2, 0, -5}
 	quickSort(a)
 	fmt.Println(a)

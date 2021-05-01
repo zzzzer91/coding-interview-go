@@ -1,3 +1,8 @@
+// 堆排序
+// 属于不稳定排序
+// 平均时 O(nlog₂n)，最坏时 O(nlog₂n)，最好时 O(nlog₂n)
+// 空 O(1)
+
 package main
 
 import (
@@ -27,7 +32,8 @@ func heapSort(a []int) {
 
 // initHeap 初始化堆
 func initHeap(a []int) {
-	// 第一个非叶子结点（从右往左）坐标 len(a)/2-1
+	// 从右往左第一个非叶子结点的坐标 len(a)/2-1
+	// 记住这个规律
 	for i := len(a)/2 - 1; i >= 0; i-- {
 		// 从第一个非叶子节点往上调整
 		heapify(a, i)
@@ -35,32 +41,31 @@ func initHeap(a []int) {
 }
 
 // 大顶堆
-// 大顶堆：a[i] >= a[2i+1] && a[i] >= a[2i+2]
-// 小顶堆：a[i] <= a[2i+1] && a[i] <= a[2i+2]
+// 大顶堆：a[p] >= a[lc] && a[p] >= a[rc]
+// 小顶堆：a[p] <= a[lc] && a[p] <= a[rc]
 // heapify 调整堆，从上往下
 func heapify(a []int, i int) {
-	p := i
-	// 设当前节点坐标为 i，其 parent 为 (i-1)/2，
-	// lChild 为 2i+1，rChild 为 2i+2。
+	// i, lc, rc 三个点中找到最大那个
+	maxIdx := i
+	// 设当前节点坐标为 i，
+	// 其 lChild 为 2i+1，rChild 为 2i+2。
+	// 其 parent 为 (i-1)/2，当然这里没用到
 	lc := i*2 + 1
 	rc := lc + 1
 	// 如果 lc >= len(a)，证明没有叶子节点
-	if lc < len(a) && less(a, p, lc) {
-		p = lc
+	if lc < len(a) && a[maxIdx] < a[lc] {
+		maxIdx = lc
 	}
-	if rc < len(a) && less(a, p, rc) {
-		p = rc
+	if rc < len(a) && a[maxIdx] < a[rc] {
+		maxIdx = rc
 	}
-	if i != p {
-		swap(a, i, p)
-		heapify(a, p)
+	if i != maxIdx {
+		swap(a, i, maxIdx)
+		heapify(a, maxIdx) // 父节点和子节点发生了交换，那么要继续递归调整子节点，使之符合堆条件
 	}
 }
 
-func less(a []int, i, j int) bool {
-	return a[i] < a[j] // 小顶，反之大顶
-}
-
+// swap 交换数组中两个元素值
 func swap(a []int, i, j int) {
 	a[i], a[j] = a[j], a[i]
 }

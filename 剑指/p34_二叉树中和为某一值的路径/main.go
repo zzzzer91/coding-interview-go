@@ -12,31 +12,28 @@ type TreeNode struct {
 	Right *TreeNode
 }
 
-func pathSum(root *TreeNode, sum int) [][]int {
+func pathSum(root *TreeNode, target int) [][]int {
 	if root == nil {
 		return nil
 	}
 	var res [][]int
 	var comb []int
-	var dfs func(root *TreeNode, target int)
-	dfs = func(root *TreeNode, target int) {
-		if root.Left == nil && root.Right == nil {
-			if target == root.Val {
-				temp := make([]int, len(comb), len(comb)+1)
-				copy(temp, comb)
-				res = append(res, append(temp, root.Val))
-			}
-			return
-		}
+	var f func(root *TreeNode, target int)
+	f = func(root *TreeNode, target int) {
 		comb = append(comb, root.Val)
-		if root.Left != nil {
-			dfs(root.Left, target-root.Val)
-		}
-		if root.Right != nil {
-			dfs(root.Right, target-root.Val)
+		target -= root.Val
+		if target == 0 && (root.Left == nil && root.Right == nil) {
+			res = append(res, append(make([]int, 0, len(comb)), comb...))
+		} else {
+			if root.Left != nil {
+				f(root.Left, target)
+			}
+			if root.Right != nil {
+				f(root.Right, target)
+			}
 		}
 		comb = comb[:len(comb)-1]
 	}
-	dfs(root, sum)
+	f(root, target)
 	return res
 }
