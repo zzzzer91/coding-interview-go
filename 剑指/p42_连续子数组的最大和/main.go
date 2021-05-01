@@ -7,9 +7,6 @@ func main() {
 }
 
 func maxSubArray(nums []int) int {
-	if len(nums) == 0 {
-		return 0
-	}
 	res := nums[0]
 	sum := nums[0]
 	for _, n := range nums[1:] {
