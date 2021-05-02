@@ -46,7 +46,50 @@ func partition(arr []int, i, j int) int {
 	return l
 }
 
+// 大顶堆
 func getLeastNumbers2(arr []int, k int) []int {
+	if len(arr) == 0 || k == 0 {
+		return nil
+	}
+	res := arr[:k]
+	initHeap(res)
+	for _, n := range arr[k:] {
+		if n < res[0] {
+			res[0] = n
+			heapify(res, 0)
+		}
+	}
+	return res
+}
+
+func initHeap(a []int) {
+	for i := len(a)/2 - 1; i >= 0; i-- {
+		heapify(a, i)
+	}
+}
+
+func heapify(a []int, i int) {
+	maxIdx := i
+	l := 2*i + 1
+	r := l + 1
+	if l < len(a) && a[maxIdx] < a[l] {
+		maxIdx = l
+	}
+	if r < len(a) && a[maxIdx] < a[r] {
+		maxIdx = r
+	}
+	if maxIdx != i {
+		swap(a, maxIdx, i)
+		heapify(a, maxIdx)
+	}
+}
+
+func swap(a []int, i, j int) {
+	a[i], a[j] = a[j], a[i]
+}
+
+// 标准库堆
+func getLeastNumbers3(arr []int, k int) []int {
 	if k == 0 {
 		return nil
 	}

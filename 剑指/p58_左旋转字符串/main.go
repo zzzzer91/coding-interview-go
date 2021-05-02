@@ -26,3 +26,7 @@ func reverse(s []byte) {
 func reverseLeftWords2(s string, n int) string {
 	return (s + s)[n : len(s)+n]
 }
+
+func reverseLeftWords3(s string, n int) string {
+	return s[n:] + s[:n]
+}

@@ -13,7 +13,6 @@ type TreeNode struct {
 }
 
 func kthLargest(root *TreeNode, k int) int {
-	count := 0
 	var stack []*TreeNode
 	for root != nil || len(stack) != 0 {
 		if root != nil {
@@ -22,8 +21,8 @@ func kthLargest(root *TreeNode, k int) int {
 		} else {
 			root = stack[len(stack)-1]
 			stack = stack[:len(stack)-1]
-			count++
-			if count == k {
+			k--
+			if k == 0 {
 				return root.Val
 			}
 			root = root.Left
