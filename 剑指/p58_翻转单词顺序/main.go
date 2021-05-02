@@ -9,18 +9,18 @@ func main() {
 }
 
 func reverseWords(s string) string {
-	s = " " + strings.TrimSpace(s)
 	var res []byte
-	pos := len(s) - 1
-	for i := len(s) - 1; i >= 0; i-- {
-		if s[i] == ' ' {
-			res = append(res, s[i+1:pos+1]...)
-			res = append(res, ' ')
+	s = " " + strings.TrimSpace(s)
+	for i, j := len(s)-1, len(s)-1; i >= 0; {
+		if s[i] != ' ' {
+			i--
+		} else {
+			res = append(res, s[i:j+1]...)
 			for i >= 0 && s[i] == ' ' {
 				i--
 			}
-			pos = i
+			j = i
 		}
 	}
-	return string(res[:len(res)-1])
+	return string(res[1:])
 }
