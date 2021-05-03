@@ -37,12 +37,13 @@ func longestCommonPrefix2(strs []string) string {
 	if len(strs) == 0 {
 		return ""
 	}
-	for i := 0; i < len(strs[0]); i++ { // 迭代第一个字符串
-		for j := 1; j < len(strs); j++ { // 迭代剩余字符串在数组的索引
-			if i == len(strs[j]) || strs[j][i] != strs[0][i] {
-				return strs[0][:i]
+	firstStr, remainStrs := strs[0], strs[1:]
+	for i := 0; i < len(firstStr); i++ { // 迭代第一个字符串
+		for j := 0; j < len(remainStrs); j++ { // 迭代剩余字符串在数组的索引
+			if i == len(remainStrs[j]) || remainStrs[j][i] != firstStr[i] {
+				return firstStr[:i]
 			}
 		}
 	}
-	return strs[0]
+	return firstStr
 }

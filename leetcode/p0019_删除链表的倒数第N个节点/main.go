@@ -13,8 +13,7 @@ func main() {
 
 func removeNthFromEnd(head *ListNode, n int) *ListNode {
 	fakeHead := ListNode{Next: head}
-	slowP := &fakeHead
-	fastP := &fakeHead
+	slowP, fastP := &fakeHead, &fakeHead
 	for i := 0; i < n; i++ {
 		fastP = fastP.Next
 	}

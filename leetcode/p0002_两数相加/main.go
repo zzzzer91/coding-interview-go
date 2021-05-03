@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/add-two-numbers/
+
 package main
 
 type ListNode struct {
@@ -78,6 +80,5 @@ func addTwoNumbers2(l1 *ListNode, l2 *ListNode) *ListNode {
 		val /= 10
 		p = p.Next
 	}
-
 	return fakeHead.Next
 }
