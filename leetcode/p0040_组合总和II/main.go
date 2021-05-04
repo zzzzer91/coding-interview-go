@@ -1,5 +1,5 @@
 // https://leetcode-cn.com/problems/combination-sum-ii/
-// 相比较 p0039，每个元素只能用一次
+// 相比较 p0039，候选集合中有重复元素，且每个元素只能用一次
 
 package main
 
@@ -14,7 +14,7 @@ func main() {
 }
 
 func combinationSum2(candidates []int, target int) [][]int {
-	sort.Ints(candidates) // 先要排序
+	sort.Ints(candidates)
 	var res [][]int
 	var comb []int
 	var dfs func(target, u int)

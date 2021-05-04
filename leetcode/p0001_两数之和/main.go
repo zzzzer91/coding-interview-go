@@ -1,4 +1,7 @@
 // https://leetcode-cn.com/problems/two-sum/
+// 相似题目：
+// https://leetcode-cn.com/problems/4sum-ii/
+// https://leetcode-cn.com/submissions/detail/174215144/
 
 package main
 

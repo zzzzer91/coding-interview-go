@@ -1,6 +1,6 @@
 // https://leetcode-cn.com/problems/combination-sum-iv/
 // 注意，顺序不同的序列被视作不同的组合
-// 应该算完全背包变种
+// 本题与「完全背包求方案数」问题的差别在于：选择方案中的不同的元素顺序代表不同方案。
 
 package main
 

@@ -9,9 +9,6 @@ func main() {
 }
 
 func merge(intervals [][]int) [][]int {
-	if len(intervals) == 0 {
-		return nil
-	}
 	var res [][]int
 	sort.Slice(intervals, func(i, j int) bool {
 		return intervals[i][0] < intervals[j][0]
@@ -33,4 +30,22 @@ func max(a, b int) int {
 		return a
 	}
 	return b
+}
+
+func merge2(intervals [][]int) [][]int {
+	var res [][]int
+	sort.Slice(intervals, func(i, j int) bool {
+		return intervals[i][0] < intervals[j][0]
+	})
+	for _, interval := range intervals {
+		if len(res) != 0 && res[len(res)-1][1] >= interval[0] {
+			temp := res[len(res)-1]
+			if temp[1] < interval[1] {
+				temp[1] = interval[1]
+			}
+		} else {
+			res = append(res, interval)
+		}
+	}
+	return res
 }

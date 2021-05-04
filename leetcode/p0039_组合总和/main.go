@@ -1,3 +1,7 @@
+// https://leetcode-cn.com/problems/combination-sum/
+// 候选集合中没有重复元素，且每个元素允许选无数次。
+// 不能出现重复集合（顺序不同，值相同视为同一集合）
+
 package main
 
 import "fmt"

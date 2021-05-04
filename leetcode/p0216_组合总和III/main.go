@@ -1,5 +1,4 @@
 // https://leetcode-cn.com/problems/combination-sum-iii/
-// 注意只允许 1～9 之间的数字
 
 package main
 
@@ -25,7 +24,7 @@ func combinationSum3(k int, n int) [][]int {
 		}
 		for i := u; i <= 9; i++ {
 			if i > target {
-				return
+				break
 			}
 			comb = append(comb, i)
 			dfs(target-i, i+1)

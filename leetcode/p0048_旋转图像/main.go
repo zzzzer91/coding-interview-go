@@ -21,3 +21,19 @@ func rotate(matrix [][]int) {
 		}
 	}
 }
+
+func rotate2(matrix [][]int) {
+	n := len(matrix)
+	// 先沿水平中线上下翻转
+	for i := 0; i < n/2; i++ {
+		for j := 0; j < n; j++ {
+			matrix[i][j], matrix[n-1-i][j] = matrix[n-1-i][j], matrix[i][j]
+		}
+	}
+	// 再沿左上到右下的斜线翻转
+	for i := 0; i < n; i++ {
+		for j := i; j < n; j++ {
+			matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+		}
+	}
+}

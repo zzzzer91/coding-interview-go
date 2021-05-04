@@ -34,16 +34,17 @@ func format(s string) string {
 var list = [26]int{2, 3, 5, 7, 11, 13, 17, 19, 23, 29, 31, 37, 41, 43, 47, 53, 59, 61, 67, 71, 73, 79, 83, 89, 97, 101}
 
 // 建立单词到数字（质数）的映射
+// 太妙了
 func groupAnagrams2(strs []string) [][]string {
+	res := make([][]string, 0, len(strs))
 	m := map[int]int{}
 	index := 0
-	res := make([][]string, 0, len(strs))
-	for i := 0; i < len(strs); i++ {
-		product := helper(strs[i])
+	for _, s := range strs {
+		product := helper(s)
 		if k, ok := m[product]; ok {
-			res[k] = append(res[k], strs[i])
+			res[k] = append(res[k], s)
 		} else {
-			res = append(res, []string{strs[i]})
+			res = append(res, []string{s})
 			m[product] = index
 			index++
 		}

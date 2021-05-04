@@ -39,20 +39,20 @@ func (h *MinHeap) Pop() interface{} {
 
 // 堆
 func mergeKLists(lists []*ListNode) *ListNode {
-	var h MinHeap
-	for _, l := range lists {
-		if l != nil {
-			heap.Push(&h, l)
-		}
-	}
 	fakeHead := ListNode{}
 	p := &fakeHead
-	for h.Len() > 0 {
-		node := heap.Pop(&h).(*ListNode)
-		p.Next = node
+	h := make(MinHeap, 0, len(lists))
+	for _, head := range lists {
+		if head != nil {
+			heap.Push(&h, head)
+		}
+	}
+	for h.Len() != 0 {
+		head := heap.Pop(&h).(*ListNode)
+		p.Next = head
 		p = p.Next
-		if node.Next != nil {
-			heap.Push(&h, node.Next)
+		if head.Next != nil {
+			heap.Push(&h, head.Next)
 		}
 	}
 	return fakeHead.Next
@@ -65,13 +65,13 @@ func mergeKLists2(lists []*ListNode) *ListNode {
 	}
 	for gap := 1; gap < len(lists); gap *= 2 {
 		for i := 0; i+gap < len(lists); i += 2 * gap {
-			lists[i] = merge(lists[i], lists[i+gap])
+			lists[i] = mergeTwoLists(lists[i], lists[i+gap])
 		}
 	}
 	return lists[0]
 }
 
-func merge(l1, l2 *ListNode) *ListNode {
+func mergeTwoLists(l1, l2 *ListNode) *ListNode {
 	list := &ListNode{}
 	visitNode := list
 	for l1 != nil && l2 != nil {

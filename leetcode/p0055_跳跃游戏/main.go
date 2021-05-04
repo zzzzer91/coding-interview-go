@@ -38,17 +38,17 @@ func canJump2(nums []int) bool {
 
 // 贪心
 func canJump3(nums []int) bool {
-	maxPos := 0
-	for i, n := range nums[:len(nums)-1] {
-		maxPos = max(maxPos, i+n)
-		if maxPos == i {
-			return false
-		}
-		if maxPos >= len(nums)-1 {
+	maxPos := 0 // 能跳到的最远下标
+	for i, n := range nums {
+		if maxPos < i { // 跳不到当前位置
 			break
 		}
+		maxPos = max(maxPos, n+i)  // 更新能跳到的最远位置
+		if maxPos >= len(nums)-1 { // 已经可以跳到最后一个位置了
+			return true
+		}
 	}
-	return true // 考虑 nums 中只有 0 的情况
+	return false
 }
 
 func max(a, b int) int {
