@@ -28,3 +28,16 @@ func buildTree(inorder []int, postorder []int) *TreeNode {
 	node.Right = buildTree(inorder[rootIndex+1:], postorder[rootIndex:len(postorder)-1])
 	return node
 }
+
+func buildTree2(preorder []int, inorder []int) *TreeNode {
+	for i := range inorder {
+		if inorder[i] == preorder[0] {
+			return &TreeNode{
+				Val:   inorder[i],
+				Left:  buildTree(preorder[1:i+1], inorder[:i]),
+				Right: buildTree(preorder[i+1:], inorder[i+1:]),
+			}
+		}
+	}
+	return nil
+}

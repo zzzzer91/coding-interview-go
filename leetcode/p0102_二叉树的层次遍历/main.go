@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/binary-tree-level-order-traversal/
+
 package main
 
 import "container/list"
@@ -16,23 +18,22 @@ func levelOrder(root *TreeNode) [][]int {
 	if root == nil {
 		return nil
 	}
+	var res [][]int
 	queue := list.New()
-	var result [][]int
 	queue.PushBack(root)
 	for queue.Len() > 0 {
-		// 每个循环 level 都会被置 nil
-		var level []int
+		var level []int // 每个循环 level 都会被置 nil
 		for i := queue.Len(); i > 0; i-- {
 			node := queue.Remove(queue.Front()).(*TreeNode)
+			level = append(level, node.Val)
 			if node.Left != nil {
 				queue.PushBack(node.Left)
 			}
 			if node.Right != nil {
 				queue.PushBack(node.Right)
 			}
-			level = append(level, node.Val)
 		}
-		result = append(result, level)
+		res = append(res, level)
 	}
-	return result
+	return res
 }
