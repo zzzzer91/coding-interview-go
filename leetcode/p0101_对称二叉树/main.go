@@ -1,3 +1,4 @@
+// https://leetcode-cn.com/problems/symmetric-tree/
 // 判断二叉树是否对称
 /*
     1
@@ -23,15 +24,15 @@ func isSymmetric(root *TreeNode) bool {
 	if root == nil {
 		return true
 	}
-	return isMirror(root.Left, root.Right)
+	return f(root.Left, root.Right)
 }
 
-func isMirror(p *TreeNode, q *TreeNode) bool {
+func f(p, q *TreeNode) bool {
 	if p == nil && q == nil {
 		return true
 	}
-	if (p == nil || q == nil) || p.Val != q.Val {
+	if p == nil || q == nil {
 		return false
 	}
-	return isMirror(p.Left, q.Right) && isMirror(q.Left, p.Right)
+	return p.Val == q.Val && f(p.Left, q.Right) && f(p.Right, q.Left)
 }

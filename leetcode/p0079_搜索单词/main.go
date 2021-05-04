@@ -1,5 +1,4 @@
 // https://leetcode-cn.com/problems/word-search/
-// 同一元素只能被使用一次
 
 package main
 
@@ -47,28 +46,25 @@ func exist(board [][]byte, word string) bool {
 
 // 代码更简洁
 func exist2(board [][]byte, word string) bool {
-	rowLen := len(board)
-	colLen := len(board[0])
-	st := make([][]bool, rowLen) // 当前位置是否已被访问过
-	for i := range st {
-		st[i] = make([]bool, colLen)
-	}
-	var dfs func(x, y, u int) bool
-	dfs = func(x, y, u int) bool {
+	m, n := len(board), len(board[0])
+	var dfs func(u, x, y int) bool
+	dfs = func(u, x, y int) bool {
 		if u == len(word) {
 			return true
 		}
-		if x < 0 || x >= rowLen || y < 0 || y >= colLen || st[x][y] || board[x][y] != word[u] {
+		if x < 0 || x >= m || y < 0 || y >= n || board[x][y] != word[u] {
 			return false
 		}
-		st[x][y] = true
-		res := dfs(x-1, y, u+1) || dfs(x+1, y, u+1) || dfs(x, y-1, u+1) || dfs(x, y+1, u+1)
-		st[x][y] = false
+		temp := board[x][y]
+		board[x][y] = 0
+		u += 1
+		res := dfs(u, x-1, y) || dfs(u, x+1, y) || dfs(u, x, y-1) || dfs(u, x, y+1)
+		board[x][y] = temp
 		return res
 	}
-	for i := 0; i < rowLen; i++ {
-		for j := 0; j < colLen; j++ {
-			if dfs(i, j, 0) {
+	for i := 0; i < m; i++ {
+		for j := 0; j < n; j++ {
+			if dfs(0, i, j) {
 				return true
 			}
 		}
