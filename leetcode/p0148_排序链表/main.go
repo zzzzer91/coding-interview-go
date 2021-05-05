@@ -61,24 +61,24 @@ func sortList2(head *ListNode) *ListNode {
 		return head
 	}
 
-	length := 0
+	listLen := 0
 	for node := head; node != nil; node = node.Next {
-		length++
+		listLen++
 	}
 
-	dummyHead := &ListNode{Next: head}
-	for subLength := 1; subLength < length; subLength <<= 1 {
-		prev, cur := dummyHead, dummyHead.Next
+	fakeHead := &ListNode{Next: head}
+	for subLen := 1; subLen < listLen; subLen <<= 1 {
+		prev, cur := fakeHead, fakeHead.Next
 		for cur != nil {
 			head1 := cur
-			for i := 1; i < subLength && cur.Next != nil; i++ {
+			for i := 1; i < subLen && cur.Next != nil; i++ {
 				cur = cur.Next
 			}
 
 			head2 := cur.Next
 			cur.Next = nil
 			cur = head2
-			for i := 1; i < subLength && cur != nil && cur.Next != nil; i++ {
+			for i := 1; i < subLen && cur != nil && cur.Next != nil; i++ {
 				cur = cur.Next
 			}
 
@@ -96,5 +96,5 @@ func sortList2(head *ListNode) *ListNode {
 			cur = next
 		}
 	}
-	return dummyHead.Next
+	return fakeHead.Next
 }

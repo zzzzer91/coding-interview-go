@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/kth-largest-element-in-an-array/
+
 package main
 
 func main() {
@@ -8,39 +10,35 @@ func main() {
 func findKthLargest(nums []int, k int) int {
 	heap := nums[:k]
 	// O(klogk)
-	buildHeap(heap)
+	initHeap(heap)
 	// O((n-k)logk)
-	for _, num := range nums[k:] {
-		if num > heap[0] {
-			heap[0] = num
+	for _, n := range nums[k:] {
+		if n > heap[0] {
+			heap[0] = n
 			heapify(heap, 0)
 		}
 	}
 	return heap[0]
 }
 
-func buildHeap(heap []int) {
-	for i := len(heap)/2 - 1; i >= 0; i-- {
-		heapify(heap, i)
+func initHeap(a []int) {
+	for i := len(a)/2 - 1; i >= 0; i-- {
+		heapify(a, i)
 	}
 }
 
-func heapify(heap []int, idx int) {
-	minIdx := idx
-	l := 2*idx + 1
-	r := l + 1
-	if l < len(heap) && heap[minIdx] > heap[l] {
-		minIdx = l
+func heapify(a []int, i int) {
+	minIdx := i
+	lc := i*2 + 1
+	rc := lc + 1
+	if lc < len(a) && a[minIdx] > a[lc] {
+		minIdx = lc
 	}
-	if r < len(heap) && heap[minIdx] > heap[r] {
-		minIdx = r
+	if rc < len(a) && a[minIdx] > a[rc] {
+		minIdx = rc
 	}
-	if minIdx != idx {
-		swap(heap, idx, minIdx)
-		heapify(heap, minIdx) // 放判断里面，是因为堆已经建成，后面的元素必定符合要求了
+	if minIdx != i {
+		a[minIdx], a[i] = a[i], a[minIdx]
+		heapify(a, minIdx)
 	}
-}
-
-func swap(a []int, i, j int) {
-	a[i], a[j] = a[j], a[i]
 }
