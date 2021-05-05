@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/diameter-of-binary-tree/
+
 package main
 
 type TreeNode struct {
@@ -10,36 +12,20 @@ func main() {
 
 }
 
-// 效率不高，有重复计算
 func diameterOfBinaryTree(root *TreeNode) int {
-	if root == nil {
-		return 0
+	res := 0
+	var f func(root *TreeNode) int
+	f = func(root *TreeNode) int {
+		if root == nil {
+			return 0
+		}
+		lc := f(root.Left)
+		rc := f(root.Right)
+		res = max(res, lc+rc) // 注意这里不需要 +1，具体看图可知
+		return max(lc, rc) + 1
 	}
-	// 求三者中最大
-	return max(max(diameterOfBinaryTree(root.Left), diameterOfBinaryTree(root.Right)), maxDepth(root.Left)+maxDepth(root.Right))
-}
-
-func diameterOfBinaryTree2(root *TreeNode) int {
-	ans := 0
-	getDeepestDepth(root, &ans)
-	return ans
-}
-
-func maxDepth(root *TreeNode) int {
-	if root == nil {
-		return 0
-	}
-	return 1 + max(maxDepth(root.Left), maxDepth(root.Right))
-}
-
-func getDeepestDepth(root *TreeNode, ans *int) int {
-	if root == nil {
-		return 0
-	}
-	l := getDeepestDepth(root.Left, ans)
-	r := getDeepestDepth(root.Right, ans)
-	*ans = max(*ans, l+r)
-	return max(l, r) + 1
+	f(root)
+	return res
 }
 
 func max(a, b int) int {

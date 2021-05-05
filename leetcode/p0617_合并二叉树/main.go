@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/merge-two-binary-trees/
+
 package main
 
 type TreeNode struct {
@@ -10,16 +12,15 @@ func main() {
 
 }
 
-func mergeTrees(t1 *TreeNode, t2 *TreeNode) *TreeNode {
-	if t1 == nil {
-		return t2
+func mergeTrees(root1 *TreeNode, root2 *TreeNode) *TreeNode {
+	if root1 == nil {
+		return root2
 	}
-	if t2 == nil {
-		return t1
+	if root2 == nil {
+		return root1
 	}
-	return &TreeNode{
-		Val:   t1.Val + t2.Val,
-		Left:  mergeTrees(t1.Left, t2.Left),
-		Right: mergeTrees(t1.Right, t2.Right),
-	}
+	root1.Val += root2.Val
+	root1.Left = mergeTrees(root1.Left, root2.Left)
+	root1.Right = mergeTrees(root1.Right, root2.Right)
+	return root1
 }

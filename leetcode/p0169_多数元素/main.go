@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/majority-element/
+
 package main
 
 func main() {
@@ -21,19 +23,20 @@ func majorityElement(nums []int) int {
 }
 
 // 多数投票算法(Boyer-Moore Algorithm)，时 O(n)，空 O(1)
-// 注意：题目中已经表明必定存在一个数出现cissus大于 len(nums) / 2，
+// 注意：题目中已经表明必定存在一个数出现次数大于 len(nums) / 2，
 // 所以这里只需要扫描一次，如果没有这个条件，那么还需扫描第二次，来判断是不是众数
 func majorityElement2(nums []int) int {
-	var target, count int
-	for _, num := range nums {
+	var res int
+	count := 0
+	for _, n := range nums {
 		if count == 0 {
-			target = num
+			res = n
 		}
-		if target == num {
+		if res == n {
 			count++
 		} else {
 			count--
 		}
 	}
-	return target
+	return res
 }

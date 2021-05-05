@@ -23,13 +23,14 @@ func isPalindrome(head *ListNode) bool {
 	for fastP.Next != nil && fastP.Next.Next != nil {
 		slowP, fastP = slowP.Next, fastP.Next.Next
 	}
-	p := reverse(slowP.Next)
-	for p != nil {
-		if head.Val != p.Val {
+	p1, p2 := head, reverse(slowP.Next)
+	for p2 != nil {
+		if p1.Val != p2.Val {
 			return false
 		}
-		head, p = head.Next, p.Next
+		p1, p2 = p1.Next, p2.Next
 	}
+	reverse(slowP.Next)
 	return true
 }
 

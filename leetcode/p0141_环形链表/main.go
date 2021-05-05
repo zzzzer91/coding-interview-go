@@ -1,3 +1,5 @@
+// https://leetcode-cn.com/problems/linked-list-cycle/
+
 package main
 
 type ListNode struct {
@@ -15,8 +17,7 @@ func hasCycle(head *ListNode) bool {
 	}
 	slowP, fastP := head, head
 	for fastP.Next != nil && fastP.Next.Next != nil {
-		slowP = slowP.Next
-		fastP = fastP.Next.Next
+		slowP, fastP = slowP.Next, fastP.Next.Next
 		if slowP == fastP {
 			return true
 		}
