@@ -2,10 +2,13 @@
 
 package main
 
-import "sort"
+import (
+	"fmt"
+	"sort"
+)
 
 func main() {
-
+	fmt.Println(findUnsortedSubarray2([]int{2, 6, 4, 8, 10, 9, 15}))
 }
 
 // 先将数组排序，然后对比前后不同，需要辅助数组
@@ -28,20 +31,22 @@ func findUnsortedSubarray(nums []int) int {
 // 优化掉辅助数组
 func findUnsortedSubarray2(nums []int) int {
 	lo, hi := -1, -2 // 让 len(nums) <= 1 也成立
-	numsLen := len(nums) - 1
-	maxN, minN := nums[0], nums[numsLen]
-	for i := 1; i <= numsLen; i++ {
-		if maxN > nums[i] {
-			// 注意，动的是 hi
+	highest := len(nums) - 1
+	preMaxN, preMinN := nums[0], nums[highest]
+	for i := 1; i <= highest; i++ { // 注意是 <=
+		// 从左到右找需要调整的最大位置 i
+		// 注意，动的是 hi
+		if nums[i] < preMaxN {
 			hi = i
 		} else {
-			maxN = nums[i]
+			preMaxN = nums[i]
 		}
-		if minN < nums[numsLen-i] {
-			// 注意，动的是 lo
-			lo = numsLen - i
+		// 从右到左找需要调整的最小位置 i
+		// 注意，动的是 lo
+		if nums[highest-i] > preMinN {
+			lo = highest - i
 		} else {
-			minN = nums[numsLen-i]
+			preMinN = nums[highest-i]
 		}
 	}
 	return hi - lo + 1
