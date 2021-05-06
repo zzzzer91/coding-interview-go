@@ -17,6 +17,7 @@ func rob(root *TreeNode) int {
 	return max(val[0], val[1])
 }
 
+// res[0] 代表选了当前节点的最大值，res[1] 代表没选当前节点的最大值
 func dfs(node *TreeNode) []int {
 	if node == nil {
 		return []int{0, 0}
