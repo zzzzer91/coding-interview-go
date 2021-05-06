@@ -20,7 +20,7 @@ func search(nums []int, target int) bool {
 				r = m - 1
 			}
 		} else if nums[m] > nums[r] { // 左半部分必然有序
-			if target > nums[r] && target < nums[m] { // 检查 target 是不是在左半部分
+			if target < nums[m] && target > nums[r] { // 检查 target 是不是在左半部分
 				r = m - 1
 			} else {
 				l = m + 1
