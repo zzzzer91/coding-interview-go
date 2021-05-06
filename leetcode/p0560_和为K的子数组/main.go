@@ -27,13 +27,11 @@ func subarraySum(nums []int, k int) int {
 func subarraySum2(nums []int, k int) int {
 	res := 0
 	m := make(map[int]int) // 和为键，次数为值
-	m[0] = 1
+	m[0] = 1               // 考虑子数组和为 k 的情况
 	prefixSum := 0
 	for _, n := range nums {
 		prefixSum += n
-		if v, ok := m[prefixSum-k]; ok {
-			res += v
-		}
+		res += m[prefixSum-k]
 		m[prefixSum] += 1
 	}
 	return res
