@@ -63,7 +63,7 @@ func mergeKLists2(lists []*ListNode) *ListNode {
 	if len(lists) == 0 {
 		return nil
 	}
-	for gap := 1; gap < len(lists); gap *= 2 {
+	for gap := 1; gap < len(lists); gap <<= 1 {
 		for i := 0; i+gap < len(lists); i += 2 * gap {
 			lists[i] = mergeTwoLists(lists[i], lists[i+gap])
 		}

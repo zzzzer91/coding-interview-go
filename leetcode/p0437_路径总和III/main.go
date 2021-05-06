@@ -15,18 +15,18 @@ func main() {
 // 双重递归
 func pathSum(root *TreeNode, sum int) int {
 	res := 0
-	var count func(r *TreeNode, tmp int)
+	var count func(r *TreeNode, target int)
 	var dfs func(r *TreeNode)
-	count = func(r *TreeNode, tmp int) {
+	count = func(r *TreeNode, target int) {
 		if r == nil {
 			return
 		}
-		tmp -= r.Val
-		if tmp == 0 {
+		target -= r.Val
+		if target == 0 {
 			res++
 		}
-		count(r.Left, tmp)
-		count(r.Right, tmp)
+		count(r.Left, target)
+		count(r.Right, target)
 	}
 	dfs = func(r *TreeNode) {
 		if r == nil {
