@@ -23,7 +23,7 @@ func findFirstPos(nums []int, target int) int {
 	for l < r {
 		m := l + (r-l)>>1
 		if nums[m] >= target {
-			r = m
+			r = m // 右边界尽量往左逼近
 		} else {
 			l = m + 1
 		}
@@ -39,7 +39,7 @@ func findLastPos(nums []int, target int) int {
 	for l < r {
 		m := l + (r-l+1)>>1
 		if nums[m] <= target {
-			l = m
+			l = m // 左边界尽量往右逼近
 		} else {
 			r = m - 1
 		}
