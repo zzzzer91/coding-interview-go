@@ -27,7 +27,7 @@ func main() {
 				dp[i] = max(dp[i], dp[j]+1)
 			}
 		}
-		res = max(res, dp[i]) // 因为 a[i+1] 可能小于 a[i]，所以要取最大值
+		res = max(res, dp[i])
 	}
 	fmt.Println(res)
 }
