@@ -13,11 +13,10 @@ func lengthOfLongestSubstring(s string) int {
 	// 存储上一次出现位置，为 i+1
 	var m [128]int
 	for l, r := 0, 0; r < len(s); r++ {
-		c := s[r]
-		l = max(l, m[c])
+		l = max(l, m[s[r]])
 		res = max(res, r-l+1)
 		// 以 原索引+1 为索引，因为数组默认初始化 0
-		m[c] = r + 1
+		m[s[r]] = r + 1
 	}
 	return res
 }
