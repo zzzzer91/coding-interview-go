@@ -22,29 +22,31 @@ func mergeSort(a []int) {
 	mergeSort(a[:m+1]) // 应该用 m+1 而不是 m，考虑长度只有 2 的情况
 	// 使右半部分有序
 	mergeSort(a[m+1:])
+	if a[m] <= a[m+1] { // 左半部分最大小于等于右半部分最小，即已经有序了，不需要再合并
+		return
+	}
 	merge(a, m)
 }
 
 // merge 将数组被 mid 分为左右的两部分合并有序
 func merge(a []int, m int) {
-	temp := make([]int, len(a))
+	temp := make([]int, len(a)) // temp 如果共用的话可以节约内存
 	copy(temp, a)
-	pos := 0
-	i, j := 0, m+1 // 应该用 m+1 而不是 m，考虑长度只有 2 的情况
+	i, j, k := 0, m+1, 0 // 应该用 m+1 而不是 m，考虑长度只有 2 的情况
 	for i <= m && j < len(a) {
-		if temp[i] < temp[j] {
-			a[pos] = temp[i]
+		if temp[i] <= temp[j] { // 这里必须是小于等于，否则是不稳定排序
+			a[k] = temp[i]
 			i++
 		} else {
-			a[pos] = temp[j]
+			a[k] = temp[j]
 			j++
 		}
-		pos++
+		k++
 	}
 	// 处理 temp 中剩下的元素
 	if i <= m {
-		copy(a[pos:], temp[i:m+1])
+		copy(a[k:], temp[i:m+1])
 	} else {
-		copy(a[pos:], temp[j:])
+		copy(a[k:], temp[j:])
 	}
 }
