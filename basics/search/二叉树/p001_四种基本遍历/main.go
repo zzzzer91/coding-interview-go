@@ -60,13 +60,12 @@ func postorderTraversal(root *TreeNode) []int {
 			root = root.Left
 		} else {
 			root = stack[len(stack)-1]
-			stack = stack[:len(stack)-1]
 			if root.Right == nil || root.Right == prev {
 				res = append(res, root.Val)
 				prev = root
+				stack = stack[:len(stack)-1]
 				root = nil
 			} else {
-				stack = append(stack, root)
 				root = root.Right
 			}
 		}
